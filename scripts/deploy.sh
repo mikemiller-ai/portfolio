@@ -49,6 +49,20 @@ aws s3 sync out/ "s3://$BUCKET/" \
   --exclude "*" --include "*.txt" \
   --cache-control "public,max-age=60,must-revalidate" --only-show-errors
 
+# The email-signature mark is the one stable-url asset that genuinely never
+# changes, so it is the one exception to the rule above. Its url is embedded in
+# every email already sent; the hard constraint on /brand/ is that a redesigned
+# mark ships under a NEW filename rather than overwriting this one. That makes
+# `immutable` correct here and it is what mail clients and Gmail's image proxy
+# want — they cache aggressively and re-fetching on every open is wasted.
+# Nothing else under /brand/ gets this: the logos and token files are stable
+# urls whose contents can be revised.
+echo "==> Pinning the signature mark (immutable, image/png)"
+aws s3 cp "s3://$BUCKET/brand/signature-mark@2x.png" \
+  "s3://$BUCKET/brand/signature-mark@2x.png" \
+  --content-type "image/png" --metadata-directive REPLACE \
+  --cache-control "public,max-age=31536000,immutable" --only-show-errors
+
 # Correct content types for the metadata files.
 aws s3 cp "s3://$BUCKET/sitemap.xml" "s3://$BUCKET/sitemap.xml" \
   --content-type "application/xml" --metadata-directive REPLACE \

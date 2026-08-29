@@ -1,0 +1,296 @@
+{
+  "core": {
+    "blue": {
+      "name": "Blue",
+      "hex": "#1E58F7",
+      "rgb": [
+        30,
+        88,
+        247
+      ],
+      "hsl": [
+        224,
+        93,
+        54
+      ],
+      "cmyk": [
+        88,
+        64,
+        0,
+        3
+      ],
+      "role": "Gradient start. The primary accent."
+    },
+    "violet": {
+      "name": "Violet",
+      "hex": "#8A5CF4",
+      "rgb": [
+        138,
+        92,
+        244
+      ],
+      "hsl": [
+        258,
+        87,
+        66
+      ],
+      "cmyk": [
+        43,
+        62,
+        0,
+        4
+      ],
+      "role": "Gradient end. Never a solid on its own."
+    },
+    "ink": {
+      "name": "Ink",
+      "hex": "#020C1E",
+      "rgb": [
+        2,
+        12,
+        30
+      ],
+      "hsl": [
+        219,
+        88,
+        6
+      ],
+      "cmyk": [
+        93,
+        60,
+        0,
+        88
+      ],
+      "role": "The logotype on light, and body text."
+    },
+    "navy": {
+      "name": "Navy",
+      "hex": "#060F21",
+      "rgb": [
+        6,
+        15,
+        33
+      ],
+      "hsl": [
+        220,
+        69,
+        8
+      ],
+      "cmyk": [
+        82,
+        55,
+        0,
+        87
+      ],
+      "role": "App-icon square, dark surfaces, avatars."
+    },
+    "navy-deep": {
+      "name": "Navy deep",
+      "hex": "#020D2B",
+      "rgb": [
+        2,
+        13,
+        43
+      ],
+      "hsl": [
+        224,
+        91,
+        9
+      ],
+      "cmyk": [
+        95,
+        70,
+        0,
+        83
+      ],
+      "role": "Navy gradient start."
+    },
+    "indigo": {
+      "name": "Indigo",
+      "hex": "#3028B5",
+      "rgb": [
+        48,
+        40,
+        181
+      ],
+      "hsl": [
+        243,
+        64,
+        43
+      ],
+      "cmyk": [
+        73,
+        78,
+        0,
+        29
+      ],
+      "role": "Navy gradient end."
+    },
+    "surface": {
+      "name": "Surface",
+      "hex": "#FFFFFF",
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "hsl": [
+        0,
+        0,
+        100
+      ],
+      "cmyk": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "role": "Primary light background."
+    },
+    "surface-alt": {
+      "name": "Surface alt",
+      "hex": "#F8F8FB",
+      "rgb": [
+        248,
+        248,
+        251
+      ],
+      "hsl": [
+        240,
+        27,
+        98
+      ],
+      "cmyk": [
+        1,
+        1,
+        0,
+        2
+      ],
+      "role": "Secondary light background, panels."
+    },
+    "divider": {
+      "name": "Divider",
+      "hex": "#DEE0E7",
+      "rgb": [
+        222,
+        224,
+        231
+      ],
+      "hsl": [
+        227,
+        16,
+        89
+      ],
+      "cmyk": [
+        4,
+        3,
+        0,
+        9
+      ],
+      "role": "The lockup hairline, rules on light."
+    },
+    "muted": {
+      "name": "Muted",
+      "hex": "#5A6478",
+      "rgb": [
+        90,
+        100,
+        120
+      ],
+      "hsl": [
+        220,
+        14,
+        41
+      ],
+      "cmyk": [
+        25,
+        17,
+        0,
+        53
+      ],
+      "role": "Supporting text on light surfaces."
+    },
+    "muted-dark": {
+      "name": "Muted dark",
+      "hex": "#98A2B8",
+      "rgb": [
+        152,
+        162,
+        184
+      ],
+      "hsl": [
+        221,
+        18,
+        66
+      ],
+      "cmyk": [
+        17,
+        12,
+        0,
+        28
+      ],
+      "role": "Supporting text on dark surfaces."
+    }
+  },
+  "derived": {
+    "blue-on-dark": "#81A1FB",
+    "gradient-flat": "#545AF6",
+    "blue-scale": {
+      "50": "#F2F5FF",
+      "100": "#E0E8FE",
+      "200": "#C0D0FD",
+      "300": "#98B2FB",
+      "400": "#628AF9",
+      "500": "#1E58F7",
+      "600": "#194AD0",
+      "700": "#143EAD",
+      "800": "#0F3086",
+      "900": "#0A235F"
+    }
+  },
+  "gradients": {
+    "brand": {
+      "angle": 90,
+      "stops": [
+        [
+          0,
+          "#1E58F7"
+        ],
+        [
+          1,
+          "#8A5CF4"
+        ]
+      ],
+      "note": "spans each object's own bounding box"
+    },
+    "navy": {
+      "angle": 90,
+      "stops": [
+        [
+          0.0,
+          "#020D2B"
+        ],
+        [
+          0.3,
+          "#020D2B"
+        ],
+        [
+          0.5,
+          "#07134C"
+        ],
+        [
+          0.7,
+          "#12196F"
+        ],
+        [
+          0.85,
+          "#211F97"
+        ],
+        [
+          1.0,
+          "#3028B5"
+        ]
+      ]
+    }
+  }
+}

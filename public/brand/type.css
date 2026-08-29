@@ -1,0 +1,129 @@
+/* mikemiller.ai — type scale
+   16 px base on a 1.25 (major third) ratio, rounded to whole pixels.
+   Pair with brand.css, which defines --mm-font. */
+
+:root {
+  --mm-display-xl-size: 3.8125rem;
+  --mm-display-xl-lh: 1.05;
+  --mm-display-xl-track: -0.03em;
+  --mm-display-xl-weight: 700;
+  --mm-display-lg-size: 3.0625rem;
+  --mm-display-lg-lh: 1.08;
+  --mm-display-lg-track: -0.028em;
+  --mm-display-lg-weight: 700;
+  --mm-display-size: 2.4375rem;
+  --mm-display-lh: 1.12;
+  --mm-display-track: -0.025em;
+  --mm-display-weight: 700;
+  --mm-h1-size: 1.9375rem;
+  --mm-h1-lh: 1.16;
+  --mm-h1-track: -0.022em;
+  --mm-h1-weight: 700;
+  --mm-h2-size: 1.5625rem;
+  --mm-h2-lh: 1.22;
+  --mm-h2-track: -0.02em;
+  --mm-h2-weight: 700;
+  --mm-h3-size: 1.25rem;
+  --mm-h3-lh: 1.35;
+  --mm-h3-track: -0.012em;
+  --mm-h3-weight: 700;
+  --mm-body-lg-size: 1.25rem;
+  --mm-body-lg-lh: 1.55;
+  --mm-body-lg-track: 0em;
+  --mm-body-lg-weight: 400;
+  --mm-body-size: 1rem;
+  --mm-body-lh: 1.6;
+  --mm-body-track: 0em;
+  --mm-body-weight: 400;
+  --mm-body-sm-size: 0.8125rem;
+  --mm-body-sm-lh: 1.55;
+  --mm-body-sm-track: 0.005em;
+  --mm-body-sm-weight: 400;
+  --mm-label-size: 0.8125rem;
+  --mm-label-lh: 1.4;
+  --mm-label-track: 0.14em;
+  --mm-label-weight: 700;
+}
+
+.mm-display-xl {
+  font-family: var(--mm-font);
+  font-size: var(--mm-display-xl-size);
+  line-height: var(--mm-display-xl-lh);
+  letter-spacing: var(--mm-display-xl-track);
+  font-weight: var(--mm-display-xl-weight);
+}
+.mm-display-lg {
+  font-family: var(--mm-font);
+  font-size: var(--mm-display-lg-size);
+  line-height: var(--mm-display-lg-lh);
+  letter-spacing: var(--mm-display-lg-track);
+  font-weight: var(--mm-display-lg-weight);
+}
+.mm-display {
+  font-family: var(--mm-font);
+  font-size: var(--mm-display-size);
+  line-height: var(--mm-display-lh);
+  letter-spacing: var(--mm-display-track);
+  font-weight: var(--mm-display-weight);
+}
+.mm-h1 {
+  font-family: var(--mm-font);
+  font-size: var(--mm-h1-size);
+  line-height: var(--mm-h1-lh);
+  letter-spacing: var(--mm-h1-track);
+  font-weight: var(--mm-h1-weight);
+}
+.mm-h2 {
+  font-family: var(--mm-font);
+  font-size: var(--mm-h2-size);
+  line-height: var(--mm-h2-lh);
+  letter-spacing: var(--mm-h2-track);
+  font-weight: var(--mm-h2-weight);
+}
+.mm-h3 {
+  font-family: var(--mm-font);
+  font-size: var(--mm-h3-size);
+  line-height: var(--mm-h3-lh);
+  letter-spacing: var(--mm-h3-track);
+  font-weight: var(--mm-h3-weight);
+}
+.mm-body-lg {
+  font-family: var(--mm-font);
+  font-size: var(--mm-body-lg-size);
+  line-height: var(--mm-body-lg-lh);
+  letter-spacing: var(--mm-body-lg-track);
+  font-weight: var(--mm-body-lg-weight);
+}
+.mm-body {
+  font-family: var(--mm-font);
+  font-size: var(--mm-body-size);
+  line-height: var(--mm-body-lh);
+  letter-spacing: var(--mm-body-track);
+  font-weight: var(--mm-body-weight);
+}
+.mm-body-sm {
+  font-family: var(--mm-font);
+  font-size: var(--mm-body-sm-size);
+  line-height: var(--mm-body-sm-lh);
+  letter-spacing: var(--mm-body-sm-track);
+  font-weight: var(--mm-body-sm-weight);
+}
+.mm-label {
+  font-family: var(--mm-font);
+  font-size: var(--mm-label-size);
+  line-height: var(--mm-label-lh);
+  letter-spacing: var(--mm-label-track);
+  font-weight: var(--mm-label-weight);
+  text-transform: uppercase;
+}
+
+/* DM Sans has no tabular figures — see TYPOGRAPHY.md. Columns of numbers get
+   the mono face instead, so they line up. */
+.mm-numeric {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The font's own outlines reach 1.043 em for ASCII and
+   1.256 em once accented capitals are involved. Do not set a
+   line-height below the one that matches the text you actually have. */

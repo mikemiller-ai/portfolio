@@ -1,0 +1,72 @@
+/* mikemiller.ai — brand custom properties */
+:root {
+  --mm-blue:        #1E58F7;
+  --mm-violet:      #8A5CF4;
+  --mm-gradient:    linear-gradient(90deg, #1E58F7 0%, #8A5CF4 100%);
+  --mm-ink:         #020C1E;
+  --mm-navy:        #060F21;
+  --mm-navy-deep:   #020D2B;
+  --mm-indigo:      #3028B5;
+  --mm-surface:     #FFFFFF;
+  --mm-surface-alt: #F8F8FB;
+  --mm-divider:     #DEE0E7;
+  --mm-muted:       #5A6478;
+  --mm-banner: linear-gradient(90deg,#020D2B 0%, #020D2B 30%, #07134C 50%, #12196F 70%, #211F97 85%, #3028B5 100%);
+
+  /* Blue is only 3.46:1 on navy, so dark surfaces get this tint instead.
+     Style against --mm-accent and it swaps with the theme on its own. */
+  --mm-blue-on-dark: #81A1FB;
+  --mm-accent:       #1E58F7;
+  /* One-colour stand-in wherever a gradient can't go. */
+  --mm-gradient-flat: #545AF6;
+
+
+  --mm-blue-50: #F2F5FF;
+  --mm-blue-100: #E0E8FE;
+  --mm-blue-200: #C0D0FD;
+  --mm-blue-300: #98B2FB;
+  --mm-blue-400: #628AF9;
+  --mm-blue-500: #1E58F7;
+  --mm-blue-600: #194AD0;
+  --mm-blue-700: #143EAD;
+  --mm-blue-800: #0F3086;
+  --mm-blue-900: #0A235F;
+
+  --mm-font: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+  --mm-logotype-tracking: -0.06em;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --mm-surface:     #060F21;
+    --mm-surface-alt: #0B1630;
+    --mm-ink:         #FFFFFF;
+    --mm-divider:     rgba(255,255,255,.22);
+    --mm-muted:       #98A2B8;
+    --mm-accent:      #81A1FB;
+  }
+}
+
+:root[data-theme="dark"] {
+  --mm-surface:     #060F21;
+  --mm-surface-alt: #0B1630;
+  --mm-ink:         #FFFFFF;
+  --mm-divider:     rgba(255,255,255,.22);
+  --mm-muted:       #98A2B8;
+  --mm-accent:      #81A1FB;
+}
+
+/* The wordmark set live in DM Sans, for headings and running text.
+   The logo itself must always be the supplied SVG, never live text. */
+.mm-logotype {
+  font-family: var(--mm-font);
+  font-weight: 700;
+  letter-spacing: var(--mm-logotype-tracking);
+  color: var(--mm-ink);
+}
+.mm-logotype .tld {
+  background: var(--mm-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

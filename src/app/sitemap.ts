@@ -18,10 +18,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/how-i-think",
     "/insights",
     "/contact",
+    // /brand is deliberately absent from primaryNav — it is a reference URL
+    // people are sent rather than a destination. It still belongs here so it is
+    // indexable and so the asset directory under it is plainly public.
+    "/brand",
   ].map((path) => ({
     url: `${base}${path}`,
     changeFrequency: "monthly" as const,
-    priority: path === "" ? 1 : 0.7,
+    priority: path === "" ? 1 : path === "/brand" ? 0.3 : 0.7,
   }));
 
   const projects = getAllProjects().map((p) => ({

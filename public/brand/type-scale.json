@@ -1,0 +1,199 @@
+{
+  "family": "DM Sans",
+  "licence": "SIL Open Font License 1.1",
+  "axes": {
+    "opsz": [
+      9,
+      40
+    ],
+    "wght": [
+      100,
+      1000
+    ]
+  },
+  "shipped_weights": {
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+  },
+  "logotype": {
+    "face": "DM Sans Bold, opsz 9",
+    "weight": 700,
+    "tracking_em": -0.06,
+    "note": "artwork only, always placed as the supplied SVG"
+  },
+  "metrics": {
+    "upm": 1000,
+    "x_height": 526,
+    "cap_height": 700,
+    "ascender": 992,
+    "descender": -310,
+    "line_gap": 0,
+    "hhea_asc": 992,
+    "hhea_desc": -310,
+    "x_ratio": 0.526,
+    "cap_ratio": 0.7,
+    "line_box": 1.302,
+    "glyphs": 486,
+    "codepoints": 403
+  },
+  "line_height_floor": {
+    "ascii": 1.043,
+    "full": 1.256
+  },
+  "scale": {
+    "base_px": 16,
+    "ratio": 1.25,
+    "steps": [
+      13,
+      16,
+      20,
+      25,
+      31,
+      39,
+      49,
+      61
+    ]
+  },
+  "roles": [
+    {
+      "token": "display-xl",
+      "px": 61,
+      "rem": 3.8125,
+      "line_height": 1.05,
+      "tracking_em": -0.03,
+      "weight": 700,
+      "text_transform": null,
+      "role": "Title slides, the one line people read across a room."
+    },
+    {
+      "token": "display-lg",
+      "px": 49,
+      "rem": 3.0625,
+      "line_height": 1.08,
+      "tracking_em": -0.028,
+      "weight": 700,
+      "text_transform": null,
+      "role": "Page heroes and section openers."
+    },
+    {
+      "token": "display",
+      "px": 39,
+      "rem": 2.4375,
+      "line_height": 1.12,
+      "tracking_em": -0.025,
+      "weight": 700,
+      "text_transform": null,
+      "role": "Opening statement on a page."
+    },
+    {
+      "token": "h1",
+      "px": 31,
+      "rem": 1.9375,
+      "line_height": 1.16,
+      "tracking_em": -0.022,
+      "weight": 700,
+      "text_transform": null,
+      "role": "Document and page titles."
+    },
+    {
+      "token": "h2",
+      "px": 25,
+      "rem": 1.5625,
+      "line_height": 1.22,
+      "tracking_em": -0.02,
+      "weight": 700,
+      "text_transform": null,
+      "role": "Section headings."
+    },
+    {
+      "token": "h3",
+      "px": 20,
+      "rem": 1.25,
+      "line_height": 1.35,
+      "tracking_em": -0.012,
+      "weight": 700,
+      "text_transform": null,
+      "role": "Sub-headings, card titles."
+    },
+    {
+      "token": "body-lg",
+      "px": 20,
+      "rem": 1.25,
+      "line_height": 1.55,
+      "tracking_em": 0.0,
+      "weight": 400,
+      "text_transform": null,
+      "role": "Standfirsts and lede paragraphs."
+    },
+    {
+      "token": "body",
+      "px": 16,
+      "rem": 1.0,
+      "line_height": 1.6,
+      "tracking_em": 0.0,
+      "weight": 400,
+      "text_transform": null,
+      "role": "Running text. The default."
+    },
+    {
+      "token": "body-sm",
+      "px": 13,
+      "rem": 0.8125,
+      "line_height": 1.55,
+      "tracking_em": 0.005,
+      "weight": 400,
+      "text_transform": null,
+      "role": "Captions, notes, fine print."
+    },
+    {
+      "token": "label",
+      "px": 13,
+      "rem": 0.8125,
+      "line_height": 1.4,
+      "tracking_em": 0.14,
+      "weight": 700,
+      "text_transform": "uppercase",
+      "role": "Eyebrows, table headers, metadata."
+    }
+  ],
+  "features": [
+    "aalt",
+    "calt",
+    "case",
+    "ccmp",
+    "dnom",
+    "frac",
+    "kern",
+    "liga",
+    "locl",
+    "mark",
+    "mkmk",
+    "numr",
+    "ordn",
+    "ss01",
+    "ss02",
+    "ss03",
+    "ss04",
+    "ss05",
+    "ss06",
+    "ss07",
+    "ss08",
+    "sups"
+  ],
+  "tabular_figures": false,
+  "fallback_overrides": {
+    "Arial": {
+      "size_adjust": 101.44,
+      "ascent": 97.8,
+      "descent": 30.56,
+      "line_gap": 0.0
+    },
+    "Helvetica Neue": {
+      "size_adjust": 101.74,
+      "ascent": 97.5,
+      "descent": 30.47,
+      "line_gap": 0.0
+    }
+  }
+}
