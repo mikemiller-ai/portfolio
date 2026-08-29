@@ -22,9 +22,16 @@ export const metadata: Metadata = {
   ...buildMetadata(),
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
+  // Brand-kit favicon set (see public/ — generated from 03-favicon).
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: [{ url: "/apple-touch-icon-180.png", sizes: "180x180" }],
   },
+  manifest: "/site.webmanifest",
 };
 
 export const viewport: Viewport = {

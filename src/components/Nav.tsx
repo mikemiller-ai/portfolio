@@ -8,29 +8,16 @@ import { primaryNav, siteConfig } from "@/data/siteConfig";
 import { cn } from "@/lib/cn";
 import { ThemeToggle } from "./ThemeToggle";
 import { ResumeButton, SocialLinks } from "./SiteLinks";
+import { BrandLogo } from "./BrandLogo";
 
 function BrandMark() {
   return (
     <Link
       href="/"
-      className="group inline-flex shrink-0 items-center gap-2.5 rounded-lg py-1 pr-2 text-fg"
+      className="group inline-flex shrink-0 items-center rounded-lg py-1 pr-2 text-fg"
       aria-label={`${siteConfig.name} — home`}
     >
-      <span
-        className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent text-sm font-semibold text-accent-fg
-                   shadow-soft transition-transform group-hover:scale-105"
-        aria-hidden
-      >
-        {siteConfig.initials}
-      </span>
-      <span className="flex flex-col leading-tight">
-        <span className="text-sm font-semibold tracking-tight">
-          {siteConfig.shortName}
-        </span>
-        <span className="hidden font-mono text-[0.65rem] uppercase tracking-[0.14em] text-subtle xl:block">
-          AI Solutions Architect
-        </span>
-      </span>
+      <BrandLogo className="h-6 w-auto transition-transform group-hover:scale-[1.03] sm:h-7" />
     </Link>
   );
 }

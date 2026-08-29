@@ -15,9 +15,15 @@ export function Hero() {
   return (
     <>
       {/* Evidence hero: dark, atmospheric (glow + faint grid), always dark
-          regardless of the light/dark theme — the signature "pop". */}
-      <section className="evidence-dark">
-        <div className="container-page grid items-center gap-12 pb-20 pt-16 sm:pt-20 lg:grid-cols-[1.1fr_0.9fr] lg:pb-28">
+          regardless of the light/dark theme — the signature "pop".
+
+          `-mt-16` pulls the hero up behind the 4rem sticky header so the dark
+          background runs all the way to the top of the page. That is what the
+          nav's transparent "over hero" state (see Nav.tsx) assumes — without
+          it the nav's light text sits on the light page background. The extra
+          top padding below restores the same clearance under the nav. */}
+      <section className="evidence-dark -mt-16">
+        <div className="container-page grid items-center gap-12 pb-20 pt-32 sm:pt-36 lg:grid-cols-[1.1fr_0.9fr] lg:pb-28">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-xs font-medium text-slate-200 backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden />
