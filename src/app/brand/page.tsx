@@ -41,7 +41,7 @@ const dmSans = DM_Sans({
 export const metadata = buildMetadata({
   title: "Brand",
   description:
-    "The mikemiller.ai brand reference: the M mark and lockups, clear space and minimum sizes, the palette and its contrast rules, the two gradients, and the DM Sans type scale — with every asset available to download.",
+    "The mikemiller.ai brand reference: the M mark and lockups, clear space and minimum sizes, the palette and its contrast rules, the two gradients, and the type system — with every asset available to download.",
   path: "/brand",
 });
 
@@ -203,9 +203,42 @@ const NAVY_GRADIENT =
   "linear-gradient(90deg, #020D2B 0%, #020D2B 30%, #07134C 50%, #12196F 70%, #211F97 85%, #3028B5 100%)";
 
 /* -------------------------------------------------------------------------
-   Type — source: TYPOGRAPHY.md §3 and §7. 16px base, 1.25 (major third)
-   ratio, rounded to whole pixels.
+   Type. Two systems, deliberately: DM Sans is the identity face (the logotype
+   was cut from it), and the web properties run Onest or Geist. The logotype
+   ships as outlines and carries no font dependency, so a site in Onest and a
+   mark cut from DM Sans are not in conflict — nothing on the page has to
+   resolve DM Sans for the lockup to render.
+
+   Sources: TYPOGRAPHY.md (identity), web-brand-kit/BRAND-ARCHITECTURE.md and
+   each brand's own TYPOGRAPHY.md under web-brand-kit/brands (web).
    ------------------------------------------------------------------------- */
+
+const typeVoices = [
+  {
+    role: "The logotype",
+    face: "DM Sans Bold, opsz 9",
+    note: "Stored as outlines inside the artwork. Never live text, so it needs no font installed anywhere.",
+  },
+  {
+    role: "mikemiller.ai — the house site",
+    face: "Onest + Geist Mono",
+    note: "The front door. Warmer and rounder, for reading. This page is set in it.",
+  },
+  {
+    role: "Products — ResolveIQ, TrustResponse, ArchIQ",
+    face: "Geist Sans + Geist Mono",
+    note: "Tools rather than reading. Tighter and more neutral, better at small sizes and dense UI.",
+  },
+  {
+    role: "Print and documents",
+    face: "DM Sans",
+    note: "The résumé, slides, anything that sits beside the mark on paper.",
+  },
+];
+
+/* The identity scale — source: TYPOGRAPHY.md §3. 16px base, 1.25 (major third)
+   ratio, rounded to whole pixels. This is DM Sans's scale; the web properties
+   run Tailwind's scale with the shared −0.025em heading tracking. */
 
 const typeScale = [
   { token: "display-xl", px: 61, lh: "1.05", tracking: "-0.030em", weight: 700, role: "Title slides." },
@@ -600,11 +633,81 @@ export default function BrandPage() {
       <Section className="border-t border-border">
         <SectionHeading
           eyebrow="Typography"
-          title="DM Sans does everything"
-          intro="Chosen by measurement, not taste: ten open-licence families were scored against the approved artwork and DM Sans Bold won on whole-word overlap at 0.861."
+          title="Two voices, one tracking rule"
+          intro="The face the logotype was cut from is not the face the websites run on, and that is deliberate rather than an oversight. What holds the properties together is the tracking, not the typeface."
         />
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_0.8fr] lg:items-start">
+        <div className="mt-10 overflow-x-auto">
+          <table className="w-full min-w-[40rem] text-left text-sm">
+            <thead>
+              <tr>
+                {["Where", "Face", "Why"].map((h) => (
+                  <th
+                    key={h}
+                    className="border-b border-border py-2.5 pr-4 font-semibold text-fg"
+                  >
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {typeVoices.map((v) => (
+                <tr key={v.role}>
+                  <td className="border-b border-border py-2.5 pr-4 align-top font-medium text-fg">
+                    {v.role}
+                  </td>
+                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-muted">
+                    {v.face}
+                  </td>
+                  <td className="border-b border-border py-2.5 align-top text-muted">
+                    {v.note}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="mt-6 grid gap-4 lg:grid-cols-2">
+          <div className="rounded-xl border-l-2 border-accent bg-surface-2 p-5">
+            <p className="text-sm font-semibold text-fg">
+              The mark never conflicts with the page
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              The logotype is stored as outlines, so it carries no font
+              dependency. A site set in Onest and a mark cut from DM Sans are not
+              out of step, because nothing on the page has to resolve DM Sans for
+              the lockup to render. Never retype{" "}
+              <code className="font-mono">mikemiller.ai</code> in any face and
+              call it the logo.
+            </p>
+          </div>
+          <div className="rounded-xl border-l-2 border-accent bg-surface-2 p-5">
+            <p className="text-sm font-semibold text-fg">
+              What actually must not vary
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              Headings track <code className="font-mono">-0.025em</code>, body
+              tracks <code className="font-mono">0</code>, and figures that have
+              to line up in a column go in a mono face. Those three rules apply
+              to every property regardless of its sans, and they do more to make
+              the family feel related than the typeface does.
+            </p>
+          </div>
+        </div>
+
+        <h3 className="mt-16 text-xl font-semibold tracking-tight text-fg">
+          The identity face: DM Sans
+        </h3>
+        <p className="mt-3 max-w-2xl text-muted">
+          Chosen by measurement, not taste: ten open-licence families were scored
+          against the approved artwork and DM Sans Bold won on whole-word overlap
+          at 0.861. It governs the logotype, print, and document work. It does
+          not govern the websites.
+        </p>
+
+        <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_0.8fr] lg:items-start">
           <div className="card p-6">
             <p
               className="text-[2.75rem] leading-none tracking-[-0.03em] text-fg"
@@ -618,7 +721,7 @@ export default function BrandPage() {
             >
               The quick brown fox jumps over the lazy dog. 0123456789 — this
               paragraph is set in DM Sans Regular so you can read the face
-              itself, not a description of it.
+              itself, not a description of it. The rest of this page is Onest.
             </p>
           </div>
 
@@ -649,13 +752,14 @@ export default function BrandPage() {
         </div>
 
         <h3 className="mt-14 text-xl font-semibold tracking-tight text-fg">
-          The scale
+          The identity scale
         </h3>
         <p className="mt-3 max-w-2xl text-muted">
-          A 16 px base on a 1.25 (major third) ratio, rounded to whole pixels:
-          13, 16, 20, 25, 31, 39, 49, 61. The ratio is a design choice; the
-          rounding keeps every step on a whole pixel so nothing renders
-          half-blurred.
+          DM Sans on a 16 px base and a 1.25 (major third) ratio, rounded to
+          whole pixels: 13, 16, 20, 25, 31, 39, 49, 61. The ratio is a design
+          choice; the rounding keeps every step on a whole pixel so nothing
+          renders half-blurred. The websites run Tailwind&apos;s scale instead,
+          with the same heading tracking.
         </p>
         <div className="mt-6 overflow-x-auto">
           <table className="w-full min-w-[42rem] text-left text-sm">
