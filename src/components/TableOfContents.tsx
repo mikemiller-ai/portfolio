@@ -45,8 +45,8 @@ export function TableOfContents({ headings }: { headings: Heading[] }) {
                 "-ml-px block border-l-2 py-1 pl-4 transition-colors",
                 h.level === 3 && "pl-7",
                 activeId === h.id
-                  ? "border-accent font-medium text-accent"
-                  : "border-transparent text-muted hover:border-border hover:text-fg",
+                  ? "border-primary font-medium text-primary"
+                  : "border-transparent text-muted-foreground hover:border-border hover:text-foreground",
               )}
             >
               {h.text}

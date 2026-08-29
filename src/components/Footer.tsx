@@ -7,14 +7,14 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="border-t border-border bg-card">
       <div className="container-page py-14">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_auto]">
           <div className="max-w-sm">
-            <p className="text-lg font-semibold tracking-tight text-fg">
+            <p className="text-lg font-semibold tracking-tight text-foreground">
               {siteConfig.name}
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-muted">
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               Designing enterprise AI that holds up in production: RAG and agentic
               systems on AWS, built with trust, evaluation, and governance.
             </p>
@@ -33,7 +33,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-muted transition-colors hover:text-accent"
+                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
                     {item.label}
                   </Link>

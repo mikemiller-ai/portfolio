@@ -14,7 +14,7 @@ function BrandMark() {
   return (
     <Link
       href="/"
-      className="group inline-flex shrink-0 items-center rounded-lg py-1 pr-2 text-fg"
+      className="group inline-flex shrink-0 items-center rounded-lg py-1 pr-2 text-foreground"
       aria-label={`${siteConfig.name} — home`}
     >
       <BrandLogo className="h-6 w-auto transition-transform group-hover:scale-[1.03] sm:h-7" />
@@ -68,8 +68,8 @@ export function Nav() {
         overHero
           ? "border-transparent bg-transparent"
           : scrolled
-            ? "border-border bg-bg/80 backdrop-blur-md supports-[backdrop-filter]:bg-bg/70"
-            : "border-transparent bg-bg",
+            ? "border-border bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/70"
+            : "border-transparent bg-background",
       )}
     >
       <nav className="container-page flex h-16 items-center justify-between gap-4">
@@ -85,8 +85,8 @@ export function Nav() {
                 className={cn(
                   "whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium transition-colors",
                   isActive(pathname, item.href)
-                    ? "text-accent"
-                    : "text-muted hover:bg-surface-2 hover:text-fg",
+                    ? "text-primary"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground",
                 )}
               >
                 {item.label}
@@ -125,11 +125,11 @@ export function Nav() {
       {open ? (
         <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" id="mobile-menu">
           <div
-            className="absolute inset-0 bg-fg/30 backdrop-blur-sm"
+            className="absolute inset-0 bg-foreground/30 backdrop-blur-sm"
             onClick={() => setOpen(false)}
             aria-hidden
           />
-          <div className="absolute right-0 top-0 flex h-full w-[min(20rem,85vw)] flex-col border-l border-border bg-surface shadow-soft-lg">
+          <div className="absolute right-0 top-0 flex h-full w-[min(20rem,85vw)] flex-col border-l border-border bg-card shadow-soft-lg">
             <div className="flex h-16 items-center justify-between border-b border-border px-5">
               <span className="text-sm font-semibold">Menu</span>
               <button
@@ -150,8 +150,8 @@ export function Nav() {
                     className={cn(
                       "block rounded-lg px-3 py-2.5 text-[0.95rem] font-medium transition-colors",
                       isActive(pathname, item.href)
-                        ? "bg-accent-soft text-accent"
-                        : "text-muted hover:bg-surface-2 hover:text-fg",
+                        ? "bg-accent text-accent-foreground"
+                        : "text-muted-foreground hover:bg-muted hover:text-foreground",
                     )}
                   >
                     {item.label}

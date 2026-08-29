@@ -50,7 +50,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${onest.variable} ${GeistMono.variable}`}>
-      <body className="min-h-screen bg-bg font-sans antialiased">
+      <body className="min-h-screen bg-background font-sans antialiased">
         <ThemeProvider>
           <SkipLink />
           <Nav />

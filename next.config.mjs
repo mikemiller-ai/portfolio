@@ -22,6 +22,7 @@ const nextConfig = {
   // Images are served from /public and pre-optimized; the default loader is
   // fine for a static-friendly build. `unoptimized` keeps the static export
   // (S3/CloudFront) working without a runtime image optimizer.
+  transpilePackages: ["@mikemiller-ai/web-brand-kit"],
   images: {
     unoptimized: true,
   },

@@ -1,12 +1,18 @@
 import type { Config } from "tailwindcss";
+import preset from "@mikemiller-ai/web-brand-kit/preset";
 
 /**
- * Design tokens are driven by CSS variables declared in src/app/globals.css.
- * To change the accent color for the whole site, edit the `--accent-*`
- * variables in that file (documented in the README).
+ * The shared preset supplies everything that must not vary between mikemiller.ai
+ * and the products: the shadcn role names, the radius steps, tracking-tight at
+ * -0.025em, and the 1152/672 measurements from the kit's LAYOUT.md. Colour
+ * values come from the tokens block in globals.css.
+ *
+ * Only put something here if it is genuinely this property's own. Overriding a
+ * value the preset sets is drift, and the override is the bug — change the kit
+ * instead, so every property gets the fix.
  */
 const config: Config = {
-  darkMode: "class",
+  presets: [preset],
   content: [
     "./src/app/**/*.{ts,tsx,mdx}",
     "./src/components/**/*.{ts,tsx}",
@@ -15,28 +21,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Semantic tokens -> CSS variables (see globals.css)
-        bg: "rgb(var(--bg) / <alpha-value>)",
-        surface: "rgb(var(--surface) / <alpha-value>)",
-        "surface-2": "rgb(var(--surface-2) / <alpha-value>)",
-        border: "rgb(var(--border) / <alpha-value>)",
-        fg: "rgb(var(--fg) / <alpha-value>)",
-        muted: "rgb(var(--muted) / <alpha-value>)",
-        subtle: "rgb(var(--subtle) / <alpha-value>)",
-        accent: {
-          DEFAULT: "rgb(var(--accent) / <alpha-value>)",
-          fg: "rgb(var(--accent-fg) / <alpha-value>)",
-          soft: "rgb(var(--accent-soft) / <alpha-value>)",
-        },
+        // Brand extension, not part of the shadcn contract: a third text level
+        // below --muted-foreground, for captions and metadata. It lives here
+        // rather than in the preset because a utility whose custom property is
+        // undefined in another brand renders as a broken colour instead of
+        // failing loudly.
+        subtle: "hsl(var(--subtle) / <alpha-value>)",
       },
-      fontFamily: {
-        sans: ["var(--font-onest)", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
-      },
-      maxWidth: {
-        content: "72rem",
-        prose: "44rem",
-      },
+      // The house card shapes. `rounded-card` (the preset's, via --radius-card)
+      // is the same 1.125rem as `rounded-2xl`; both exist so a component can be
+      // written either against the token or against this property's own scale.
       borderRadius: {
         xl: "0.875rem",
         "2xl": "1.125rem",

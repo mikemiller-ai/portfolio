@@ -337,8 +337,8 @@ function AssetTile({ asset }: { asset: Asset }) {
         />
       </div>
       <figcaption className="flex flex-1 flex-col border-t border-border p-5">
-        <p className="text-sm font-semibold text-fg">{asset.name}</p>
-        <p className="mt-1.5 text-sm leading-relaxed text-muted">{asset.note}</p>
+        <p className="text-sm font-semibold text-foreground">{asset.name}</p>
+        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{asset.note}</p>
         {/* mt-auto pins the download row to the bottom so a row of tiles with
             captions of different lengths still lines its buttons up. */}
         <p className="mt-auto flex flex-wrap gap-2 pt-4">
@@ -374,10 +374,10 @@ export default function BrandPage() {
       <Section leading>
         <div className="max-w-3xl">
           <p className="eyebrow mb-3">Brand</p>
-          <h1 className="text-balance text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
+          <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             The mikemiller.ai identity
           </h1>
-          <p className="mt-6 text-pretty text-lg leading-relaxed text-muted">
+          <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
             The mark, the lockups, the palette and the type scale, with the rules
             that go with them. Every value here was measured from the approved
             artwork rather than picked by eye, and every asset on this page is
@@ -400,10 +400,10 @@ export default function BrandPage() {
           ))}
         </div>
 
-        <h3 className="mt-16 text-xl font-semibold tracking-tight text-fg">
+        <h3 className="mt-16 text-xl font-semibold tracking-tight text-foreground">
           The mark on its own
         </h3>
-        <p className="mt-3 max-w-2xl text-muted">
+        <p className="mt-3 max-w-2xl text-muted-foreground">
           The M is built on a 160 × 150 grid. Stroke weight is one eighth of the
           width, every diagonal runs at dx/dy = 4/3, and the V sits dead centre.
           Three rules generate the whole thing.
@@ -428,15 +428,15 @@ export default function BrandPage() {
             <p className="font-mono text-xs uppercase tracking-[0.14em] text-subtle">
               Clear space
             </p>
-            <p className="mt-4 leading-relaxed text-muted">
+            <p className="mt-4 leading-relaxed text-muted-foreground">
               Keep clear on all four sides a margin equal to{" "}
-              <strong className="font-semibold text-fg">
+              <strong className="font-semibold text-foreground">
                 the mark&apos;s stroke weight × 1.8
               </strong>{" "}
               — that is 0.24 × the mark height. Nothing else may enter it: no
               type, no rules, no other logos, no tagline.
             </p>
-            <p className="mt-4 leading-relaxed text-muted">
+            <p className="mt-4 leading-relaxed text-muted-foreground">
               At mark height H the lockup reads: mark 1.067 H wide, a 0.50 H gap,
               the hairline divider, a 0.46 H gap, then the logotype at 0.60 H
               ascender-to-baseline. The logotype&apos;s x-height band is centred
@@ -453,10 +453,10 @@ export default function BrandPage() {
               <table className="w-full text-left text-sm">
                 <thead>
                   <tr>
-                    <th className="border-b border-border py-2 pr-4 font-semibold text-fg">
+                    <th className="border-b border-border py-2 pr-4 font-semibold text-foreground">
                       Asset
                     </th>
-                    <th className="border-b border-border py-2 font-semibold text-fg">
+                    <th className="border-b border-border py-2 font-semibold text-foreground">
                       Minimum
                     </th>
                   </tr>
@@ -468,10 +468,10 @@ export default function BrandPage() {
                     ["Mark inside the navy square", "16 px"],
                   ].map(([asset, min]) => (
                     <tr key={asset}>
-                      <td className="border-b border-border py-2 pr-4 align-top text-muted">
+                      <td className="border-b border-border py-2 pr-4 align-top text-muted-foreground">
                         {asset}
                       </td>
-                      <td className="border-b border-border py-2 align-top font-mono text-[0.8125rem] text-muted">
+                      <td className="border-b border-border py-2 align-top font-mono text-[0.8125rem] text-muted-foreground">
                         {min}
                       </td>
                     </tr>
@@ -479,7 +479,7 @@ export default function BrandPage() {
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-muted">
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               Below 16 px the one-eighth stroke drops under two device pixels and
               the ribbon gap closes up. The 16 px and 32 px favicons in the kit
               are already opened out to compensate — use those files rather than
@@ -488,14 +488,14 @@ export default function BrandPage() {
           </div>
         </div>
 
-        <h3 className="mt-14 text-xl font-semibold tracking-tight text-fg">
+        <h3 className="mt-14 text-xl font-semibold tracking-tight text-foreground">
           Misuse
         </h3>
         <ul className="mt-5 grid max-w-4xl gap-3 sm:grid-cols-2">
           {misuse.map((rule) => (
             <li
               key={rule}
-              className="flex gap-3 rounded-xl border border-border bg-surface-2 p-4 text-sm leading-relaxed text-muted"
+              className="flex gap-3 rounded-xl border border-border bg-muted p-4 text-sm leading-relaxed text-muted-foreground"
             >
               <span aria-hidden className="mt-0.5 font-mono text-subtle">
                 ×
@@ -527,21 +527,21 @@ export default function BrandPage() {
               />
               <div className="p-4">
                 <div className="flex items-baseline justify-between gap-3">
-                  <p className="text-sm font-semibold text-fg">{c.name}</p>
+                  <p className="text-sm font-semibold text-foreground">{c.name}</p>
                   <p className="font-mono text-xs uppercase text-subtle">{c.hex}</p>
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{c.role}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.role}</p>
               </div>
             </div>
           ))}
         </div>
 
         <div className="mt-10 grid gap-4 lg:grid-cols-2">
-          <div className="rounded-xl border-l-2 border-accent bg-surface-2 p-5">
-            <p className="text-sm font-semibold text-fg">
+          <div className="rounded-xl border-l-2 border-primary bg-muted p-5">
+            <p className="text-sm font-semibold text-foreground">
               Violet is not a text colour
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               <code className="font-mono">#8A5CF4</code> on white is 4.27:1 and
               fails AA for body copy. Use it in the gradient, in artwork, and in
               large display type only. The logo itself is exempt — WCAG sets no
@@ -549,11 +549,11 @@ export default function BrandPage() {
               running text in violet.
             </p>
           </div>
-          <div className="rounded-xl border-l-2 border-accent bg-surface-2 p-5">
-            <p className="text-sm font-semibold text-fg">
+          <div className="rounded-xl border-l-2 border-primary bg-muted p-5">
+            <p className="text-sm font-semibold text-foreground">
               Blue works on light, not on dark
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               <code className="font-mono">#1E58F7</code> clears AA on white at
               5.53:1 and drops to 3.46:1 on navy. On dark surfaces use{" "}
               <code className="font-mono">#81A1FB</code> instead — 7.67:1 on
@@ -563,7 +563,7 @@ export default function BrandPage() {
           </div>
         </div>
 
-        <h3 className="mt-16 text-xl font-semibold tracking-tight text-fg">
+        <h3 className="mt-16 text-xl font-semibold tracking-tight text-foreground">
           The two gradients
         </h3>
 
@@ -571,14 +571,14 @@ export default function BrandPage() {
           <div className="card overflow-hidden">
             <div className="h-28" style={{ background: BRAND_GRADIENT }} aria-hidden />
             <div className="border-t border-border p-5">
-              <p className="text-sm font-semibold text-fg">Brand gradient</p>
-              <pre className="mt-3 overflow-x-auto rounded-lg border border-border bg-surface-2 p-3 font-mono text-[0.78rem] leading-relaxed text-muted">
+              <p className="text-sm font-semibold text-foreground">Brand gradient</p>
+              <pre className="mt-3 overflow-x-auto rounded-lg border border-border bg-muted p-3 font-mono text-[0.78rem] leading-relaxed text-muted-foreground">
 {`background: linear-gradient(
   90deg, #1E58F7 0%, #8A5CF4 100%);`}
               </pre>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Horizontal, left to right, spanning{" "}
-                <strong className="font-semibold text-fg">
+                <strong className="font-semibold text-foreground">
                   each object&apos;s own bounding box
                 </strong>{" "}
                 — the mark gets one, the <code className="font-mono">.ai</code>{" "}
@@ -591,13 +591,13 @@ export default function BrandPage() {
           <div className="card overflow-hidden">
             <div className="h-28" style={{ background: NAVY_GRADIENT }} aria-hidden />
             <div className="border-t border-border p-5">
-              <p className="text-sm font-semibold text-fg">Navy gradient</p>
-              <pre className="mt-3 overflow-x-auto rounded-lg border border-border bg-surface-2 p-3 font-mono text-[0.78rem] leading-relaxed text-muted">
+              <p className="text-sm font-semibold text-foreground">Navy gradient</p>
+              <pre className="mt-3 overflow-x-auto rounded-lg border border-border bg-muted p-3 font-mono text-[0.78rem] leading-relaxed text-muted-foreground">
 {`background: linear-gradient(90deg,
   #020D2B 0%, #020D2B 30%, #07134C 50%,
   #12196F 70%, #211F97 85%, #3028B5 100%);`}
               </pre>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Holds flat navy across the first third, then ramps to indigo.
                 That ease-in is deliberate: a straight two-stop ramp between the
                 same endpoints reads muddy through the middle.
@@ -606,18 +606,18 @@ export default function BrandPage() {
           </div>
         </div>
 
-        <div className="mt-6 flex flex-col gap-4 rounded-xl border border-border bg-surface p-5 sm:flex-row sm:items-center">
+        <div className="mt-6 flex flex-col gap-4 rounded-xl border border-border bg-card p-5 sm:flex-row sm:items-center">
           <div
             className="h-14 w-14 shrink-0 rounded-lg border border-border"
             style={{ background: "#545AF6" }}
             aria-hidden
           />
           <div>
-            <p className="text-sm font-semibold text-fg">
+            <p className="text-sm font-semibold text-foreground">
               When you can&apos;t have a gradient, use{" "}
               <code className="font-mono">#545AF6</code>
             </p>
-            <p className="mt-1.5 text-sm leading-relaxed text-muted">
+            <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
               A one-colour print run, an embroidery file, a client that flattens
               everything. Use the midpoint rather than picking one end — 5.04:1
               on white, 3.80:1 on navy. Both brand colours sit outside CMYK
@@ -644,7 +644,7 @@ export default function BrandPage() {
                 {["Where", "Face", "Why"].map((h) => (
                   <th
                     key={h}
-                    className="border-b border-border py-2.5 pr-4 font-semibold text-fg"
+                    className="border-b border-border py-2.5 pr-4 font-semibold text-foreground"
                   >
                     {h}
                   </th>
@@ -654,13 +654,13 @@ export default function BrandPage() {
             <tbody>
               {typeVoices.map((v) => (
                 <tr key={v.role}>
-                  <td className="border-b border-border py-2.5 pr-4 align-top font-medium text-fg">
+                  <td className="border-b border-border py-2.5 pr-4 align-top font-medium text-foreground">
                     {v.role}
                   </td>
-                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-muted">
+                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-muted-foreground">
                     {v.face}
                   </td>
-                  <td className="border-b border-border py-2.5 align-top text-muted">
+                  <td className="border-b border-border py-2.5 align-top text-muted-foreground">
                     {v.note}
                   </td>
                 </tr>
@@ -670,11 +670,11 @@ export default function BrandPage() {
         </div>
 
         <div className="mt-6 grid gap-4 lg:grid-cols-2">
-          <div className="rounded-xl border-l-2 border-accent bg-surface-2 p-5">
-            <p className="text-sm font-semibold text-fg">
+          <div className="rounded-xl border-l-2 border-primary bg-muted p-5">
+            <p className="text-sm font-semibold text-foreground">
               The mark never conflicts with the page
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               The logotype is stored as outlines, so it carries no font
               dependency. A site set in Onest and a mark cut from DM Sans are not
               out of step, because nothing on the page has to resolve DM Sans for
@@ -683,11 +683,11 @@ export default function BrandPage() {
               call it the logo.
             </p>
           </div>
-          <div className="rounded-xl border-l-2 border-accent bg-surface-2 p-5">
-            <p className="text-sm font-semibold text-fg">
+          <div className="rounded-xl border-l-2 border-primary bg-muted p-5">
+            <p className="text-sm font-semibold text-foreground">
               What actually must not vary
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               Headings track <code className="font-mono">-0.025em</code>, body
               tracks <code className="font-mono">0</code>, and figures that have
               to line up in a column go in a mono face. Those three rules apply
@@ -697,10 +697,10 @@ export default function BrandPage() {
           </div>
         </div>
 
-        <h3 className="mt-16 text-xl font-semibold tracking-tight text-fg">
+        <h3 className="mt-16 text-xl font-semibold tracking-tight text-foreground">
           The identity face: DM Sans
         </h3>
-        <p className="mt-3 max-w-2xl text-muted">
+        <p className="mt-3 max-w-2xl text-muted-foreground">
           Chosen by measurement, not taste: ten open-licence families were scored
           against the approved artwork and DM Sans Bold won on whole-word overlap
           at 0.861. It governs the logotype, print, and document work. It does
@@ -710,13 +710,13 @@ export default function BrandPage() {
         <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_0.8fr] lg:items-start">
           <div className="card p-6">
             <p
-              className="text-[2.75rem] leading-none tracking-[-0.03em] text-fg"
+              className="text-[2.75rem] leading-none tracking-[-0.03em] text-foreground"
               style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700 }}
             >
               Aa Bb Gg Qq
             </p>
             <p
-              className="mt-4 text-lg leading-relaxed text-muted"
+              className="mt-4 text-lg leading-relaxed text-muted-foreground"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
               The quick brown fox jumps over the lazy dog. 0123456789 — this
@@ -737,12 +737,12 @@ export default function BrandPage() {
                 ["Cap height", "0.700 em"],
               ].map(([k, v]) => (
                 <div key={k} className="flex justify-between gap-4 border-b border-border pb-3">
-                  <dt className="text-muted">{k}</dt>
-                  <dd className="text-right font-medium text-fg">{v}</dd>
+                  <dt className="text-muted-foreground">{k}</dt>
+                  <dd className="text-right font-medium text-foreground">{v}</dd>
                 </div>
               ))}
             </dl>
-            <p className="mt-4 text-sm leading-relaxed text-muted">
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               OFL 1.1 means free for commercial use, free to embed, and free to
               hand to a vendor. No Cyrillic and no Greek — if the brand ever
               needs either, DM Sans cannot do it and the decision has to be
@@ -751,10 +751,10 @@ export default function BrandPage() {
           </div>
         </div>
 
-        <h3 className="mt-14 text-xl font-semibold tracking-tight text-fg">
+        <h3 className="mt-14 text-xl font-semibold tracking-tight text-foreground">
           The identity scale
         </h3>
-        <p className="mt-3 max-w-2xl text-muted">
+        <p className="mt-3 max-w-2xl text-muted-foreground">
           DM Sans on a 16 px base and a 1.25 (major third) ratio, rounded to
           whole pixels: 13, 16, 20, 25, 31, 39, 49, 61. The ratio is a design
           choice; the rounding keeps every step on a whole pixel so nothing
@@ -768,7 +768,7 @@ export default function BrandPage() {
                 {["Token", "Size", "Line-height", "Tracking", "Weight", "Role"].map((h) => (
                   <th
                     key={h}
-                    className="border-b border-border py-2.5 pr-4 font-semibold text-fg"
+                    className="border-b border-border py-2.5 pr-4 font-semibold text-foreground"
                   >
                     {h}
                   </th>
@@ -778,22 +778,22 @@ export default function BrandPage() {
             <tbody>
               {typeScale.map((t) => (
                 <tr key={t.token}>
-                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-fg">
+                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-foreground">
                     {t.token}
                   </td>
-                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-muted">
+                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-muted-foreground">
                     {t.px} px
                   </td>
-                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-muted">
+                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-muted-foreground">
                     {t.lh}
                   </td>
-                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-muted">
+                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-muted-foreground">
                     {t.tracking}
                   </td>
-                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-muted">
+                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-muted-foreground">
                     {t.weight}
                   </td>
-                  <td className="border-b border-border py-2.5 align-top text-muted">
+                  <td className="border-b border-border py-2.5 align-top text-muted-foreground">
                     {t.role}
                   </td>
                 </tr>
@@ -801,7 +801,7 @@ export default function BrandPage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted">
+        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
           The measured line-height floor is 1.043 em for ASCII and 1.256 em once
           accented capitals are in play, so a display heading at 1.05 is safe in
           English and will clip in Polish or Latvian. And DM Sans ships no{" "}
@@ -811,10 +811,10 @@ export default function BrandPage() {
           does nothing. Numbers that must align go in JetBrains Mono.
         </p>
 
-        <h3 className="mt-14 text-xl font-semibold tracking-tight text-fg">
+        <h3 className="mt-14 text-xl font-semibold tracking-tight text-foreground">
           Stylistic sets
         </h3>
-        <p className="mt-3 max-w-2xl text-muted">
+        <p className="mt-3 max-w-2xl text-muted-foreground">
           Eight of them. Google Fonts&apos; build has all of them stripped —
           measured, not assumed — so on the web they are simply unavailable
           unless you self-host the variable font. Which at least means nobody can
@@ -827,7 +827,7 @@ export default function BrandPage() {
                 {["Set", "What it does", "Verdict"].map((h) => (
                   <th
                     key={h}
-                    className="border-b border-border py-2.5 pr-4 font-semibold text-fg"
+                    className="border-b border-border py-2.5 pr-4 font-semibold text-foreground"
                   >
                     {h}
                   </th>
@@ -837,10 +837,10 @@ export default function BrandPage() {
             <tbody>
               {stylisticSets.map((s) => (
                 <tr key={s.set}>
-                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-fg">
+                  <td className="border-b border-border py-2.5 pr-4 align-top font-mono text-[0.8125rem] text-foreground">
                     {s.set}
                   </td>
-                  <td className="border-b border-border py-2.5 pr-4 align-top text-muted">
+                  <td className="border-b border-border py-2.5 pr-4 align-top text-muted-foreground">
                     {s.what}
                   </td>
                   <td className="border-b border-border py-2.5 align-top">
@@ -859,7 +859,7 @@ export default function BrandPage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted">
+        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
           <code className="font-mono">ss02</code> must stay off everywhere. It
           swaps the double-storey <em>a</em> for a single-storey one, and the
           double-storey <em>a</em> is one of the letterforms the typeface was
@@ -890,14 +890,14 @@ export default function BrandPage() {
                       className="card card-hover flex items-start gap-3 p-4"
                     >
                       <Download
-                        className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-primary"
                         aria-hidden
                       />
                       <span>
-                        <span className="block text-sm font-medium text-fg">
+                        <span className="block text-sm font-medium text-foreground">
                           {item.label}
                         </span>
-                        <span className="mt-1 block text-sm leading-relaxed text-muted">
+                        <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
                           {item.note}
                         </span>
                       </span>
@@ -909,9 +909,9 @@ export default function BrandPage() {
           ))}
         </div>
 
-        <div className="mt-10 max-w-3xl rounded-xl border-l-2 border-accent bg-surface-2 p-5">
-          <p className="text-sm font-semibold text-fg">A permanent URL lives here</p>
-          <p className="mt-2 text-sm leading-relaxed text-muted">
+        <div className="mt-10 max-w-3xl rounded-xl border-l-2 border-primary bg-muted p-5">
+          <p className="text-sm font-semibold text-foreground">A permanent URL lives here</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             <code className="font-mono">/brand/signature-mark@2x.png</code> is
             the mark referenced by the mikemiller.ai email signature. It is
             embedded in every message already sent, so it is append-only: never

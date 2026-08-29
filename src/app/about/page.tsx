@@ -68,10 +68,10 @@ export default function AboutPage() {
         <div className="grid gap-12 lg:grid-cols-[1fr_0.7fr] lg:items-start">
           <div>
             <p className="eyebrow mb-3">About</p>
-            <h1 className="text-balance text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
+            <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
               I build AI that has to earn its trust
             </h1>
-            <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted">
+            <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>
                 I&apos;m {siteConfig.name}, a senior AI solutions architect and
                 engineer based in the {siteConfig.location}. Most of my work now
@@ -102,7 +102,7 @@ export default function AboutPage() {
           </div>
 
           <Reveal className="lg:sticky lg:top-24">
-            <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-soft">
+            <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
               <Image
                 src={siteConfig.headshotPath}
                 alt={`Portrait of ${siteConfig.name}`}
@@ -113,13 +113,13 @@ export default function AboutPage() {
               />
             </div>
             <dl className="mt-5 grid grid-cols-2 gap-3 text-sm">
-              <div className="rounded-xl border border-border bg-surface p-4">
+              <div className="rounded-xl border border-border bg-card p-4">
                 <dt className="text-subtle">Experience</dt>
-                <dd className="mt-1 text-2xl font-semibold text-fg">10+ yrs</dd>
+                <dd className="mt-1 text-2xl font-semibold text-foreground">10+ yrs</dd>
               </div>
-              <div className="rounded-xl border border-border bg-surface p-4">
+              <div className="rounded-xl border border-border bg-card p-4">
                 <dt className="text-subtle">Revenue impact</dt>
-                <dd className="mt-1 text-2xl font-semibold text-fg">$35M+</dd>
+                <dd className="mt-1 text-2xl font-semibold text-foreground">$35M+</dd>
               </div>
             </dl>
           </Reveal>
@@ -127,7 +127,7 @@ export default function AboutPage() {
       </Section>
 
       {/* What I bridge */}
-      <div className="border-y border-border bg-surface">
+      <div className="border-y border-border bg-card">
         <Section>
           <SectionHeading
             eyebrow="What I do"
@@ -139,12 +139,12 @@ export default function AboutPage() {
               <Reveal
                 key={b}
                 delay={i * 60}
-                className="flex items-center gap-4 rounded-2xl border border-border bg-bg p-5"
+                className="flex items-center gap-4 rounded-2xl border border-border bg-background p-5"
               >
-                <span className="font-mono text-sm font-semibold text-accent">
+                <span className="font-mono text-sm font-semibold text-primary">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="text-[0.95rem] font-medium text-fg">{b}</span>
+                <span className="text-[0.95rem] font-medium text-foreground">{b}</span>
               </Reveal>
             ))}
           </div>
@@ -161,24 +161,24 @@ export default function AboutPage() {
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {beliefs.map((belief, i) => (
             <Reveal key={belief.title} delay={i * 50} as="article" className="card p-6">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-accent-soft text-accent">
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-accent text-accent-foreground">
                 <belief.icon className="h-5 w-5" aria-hidden />
               </span>
-              <h3 className="mt-4 text-lg font-semibold tracking-tight text-fg">
+              <h3 className="mt-4 text-lg font-semibold tracking-tight text-foreground">
                 {belief.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{belief.body}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{belief.body}</p>
             </Reveal>
           ))}
         </div>
       </Section>
 
       {/* Personal touch */}
-      <div className="border-t border-border bg-surface">
+      <div className="border-t border-border bg-card">
         <Section>
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <SectionHeading eyebrow="Away from the whiteboard" title="What I'm like to work with" />
-            <div className="space-y-5 text-lg leading-relaxed text-muted">
+            <div className="space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>
                 I&apos;m a compulsive learner — I keep a running set of reference
                 libraries and technical playbooks, partly because writing

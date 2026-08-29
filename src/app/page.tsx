@@ -43,7 +43,7 @@ export default function HomePage() {
 
       {/* Live app showcase */}
       {showcaseItems.length > 0 ? (
-        <div className="border-b border-border bg-surface">
+        <div className="border-b border-border bg-card">
           <Section leading>
             <SectionHeading
               eyebrow="See them live"
@@ -84,7 +84,7 @@ export default function HomePage() {
       </Section>
 
       {/* How I work */}
-      <div className="border-y border-border bg-surface">
+      <div className="border-y border-border bg-card">
         <Section>
           <SectionHeading
             eyebrow="How I work"
@@ -110,11 +110,11 @@ export default function HomePage() {
       </Section>
 
       {/* Personal intro */}
-      <div className="border-t border-border bg-surface">
+      <div className="border-t border-border bg-card">
         <Section>
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <SectionHeading eyebrow="A little about me" title="I work where the model meets production reality" />
-            <div className="space-y-5 text-lg leading-relaxed text-muted">
+            <div className="space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>
                 My work sits at the point where an AI idea has to become something
                 a team can actually run. I like designing RAG and agentic systems,

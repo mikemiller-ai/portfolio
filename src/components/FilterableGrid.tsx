@@ -51,8 +51,8 @@ export function FilterableGrid({
               className={cn(
                 "rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors",
                 isActive
-                  ? "border-transparent bg-accent text-accent-fg"
-                  : "border-border bg-surface text-muted hover:border-accent/40 hover:text-fg",
+                  ? "border-transparent bg-primary text-primary-foreground"
+                  : "border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground",
               )}
             >
               {option}
@@ -80,7 +80,7 @@ export function FilterableGrid({
       </div>
 
       {visible.length === 0 ? (
-        <p className="mt-10 rounded-xl border border-dashed border-border bg-surface-2 p-8 text-center text-muted">
+        <p className="mt-10 rounded-xl border border-dashed border-border bg-muted p-8 text-center text-muted-foreground">
           No items match this filter yet.
         </p>
       ) : null}

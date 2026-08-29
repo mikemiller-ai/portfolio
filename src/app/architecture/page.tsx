@@ -39,10 +39,10 @@ export default function ArchitecturePage() {
       <Section leading>
         <div className="max-w-3xl">
           <p className="eyebrow mb-3">Architecture gallery</p>
-          <h1 className="text-balance text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
+          <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             Enterprise AI &amp; cloud patterns, explained honestly
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-muted">
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             The conversation has moved on from &ldquo;can AI do this&rdquo; to
             &ldquo;can we trust it in production.&rdquo; The hard problems now are
             grounding answers in real sources, deciding how much autonomy an agent
@@ -50,10 +50,10 @@ export default function ArchitecturePage() {
             and doing all of it without a runaway cloud bill. These are the
             patterns I keep coming back to for exactly those problems.
           </p>
-          <p className="mt-4 text-lg leading-relaxed text-muted">
+          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
             Each one covers the request flow, why each component is there, the
             alternatives, and when <em>not</em> to use it. Start with{" "}
-            <span className="font-medium text-fg">Enterprise RAG</span> for the
+            <span className="font-medium text-foreground">Enterprise RAG</span> for the
             interactive walkthrough.
           </p>
         </div>

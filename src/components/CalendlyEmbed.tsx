@@ -11,7 +11,7 @@ const WIDGET_SCRIPT = "https://assets.calendly.com/assets/external/widget.js";
 
 /**
  * Calendly's colour params take bare hex, no "#". These mirror the site tokens
- * in globals.css (--surface / --fg / --accent) so the scheduler reads as part
+ * in globals.css (--card / --foreground / --primary) so the scheduler reads as part
  * of the page rather than a white rectangle dropped into it.
  */
 const EMBED_COLORS = {
@@ -136,19 +136,19 @@ export function CalendlyEmbed({ className }: { className?: string }) {
               className={cn(
                 "rounded-2xl border p-4 text-left transition-colors",
                 selected
-                  ? "border-accent bg-accent-soft"
-                  : "border-border bg-surface hover:border-accent/40 hover:bg-surface-2",
+                  ? "border-primary bg-accent"
+                  : "border-border bg-card hover:border-primary/40 hover:bg-muted",
               )}
             >
               <span
                 className={cn(
                   "block text-sm font-semibold",
-                  selected ? "text-accent" : "text-fg",
+                  selected ? "text-primary" : "text-foreground",
                 )}
               >
                 {event.label}
               </span>
-              <span className="mt-1 block text-sm text-muted">{event.blurb}</span>
+              <span className="mt-1 block text-sm text-muted-foreground">{event.blurb}</span>
             </button>
           );
         })}
@@ -161,7 +161,7 @@ export function CalendlyEmbed({ className }: { className?: string }) {
           needs the taller value because the widget stacks profile over calendar. */}
       <div
         ref={containerRef}
-        className="mt-6 h-[1040px] w-full overflow-hidden rounded-2xl border border-border bg-surface sm:h-[700px]"
+        className="mt-6 h-[1040px] w-full overflow-hidden rounded-2xl border border-border bg-card sm:h-[700px]"
         aria-busy={!mounted}
       >
         {!mounted ? (
@@ -178,7 +178,7 @@ export function CalendlyEmbed({ className }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackEvent("booking_opened", { source: "fallback" })}
-          className="inline-flex items-center gap-1 font-medium text-accent underline underline-offset-2"
+          className="inline-flex items-center gap-1 font-medium text-primary underline underline-offset-2"
         >
           Open it in a new tab
           <ExternalLink className="h-3.5 w-3.5" aria-hidden />

@@ -86,7 +86,7 @@ export default async function ArticleDetailPage({
       <article className="container-page py-12 sm:py-16">
         <Link
           href="/insights"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-accent no-print"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary no-print"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden />
           All insights
@@ -100,10 +100,10 @@ export default async function ArticleDetailPage({
               </span>
             ))}
           </div>
-          <h1 className="mt-4 text-balance text-4xl font-semibold leading-tight tracking-tight text-fg sm:text-[2.75rem]">
+          <h1 className="mt-4 text-balance text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-[2.75rem]">
             {frontmatter.title}
           </h1>
-          <p className="mt-4 text-pretty text-xl leading-relaxed text-muted">
+          <p className="mt-4 text-pretty text-xl leading-relaxed text-muted-foreground">
             {frontmatter.subtitle}
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-y border-border py-4 text-sm text-subtle">

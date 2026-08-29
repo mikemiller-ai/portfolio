@@ -52,8 +52,8 @@ export function LiveShowcase({ items }: { items: ShowcaseItem[] }) {
       {/* Browser-framed, crossfading screenshot */}
       <div className="relative">
         <div className="pointer-events-none absolute -inset-4 rounded-[1.75rem] bg-gradient-to-br from-accent/20 to-transparent blur-2xl" aria-hidden />
-        <div className="relative overflow-hidden rounded-2xl border border-border bg-surface shadow-soft-lg">
-          <div className="flex items-center gap-1.5 border-b border-border bg-surface-2 px-4 py-2.5">
+        <div className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-soft-lg">
+          <div className="flex items-center gap-1.5 border-b border-border bg-muted px-4 py-2.5">
             <span className="h-2.5 w-2.5 rounded-full bg-rose-400/80" aria-hidden />
             <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" aria-hidden />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" aria-hidden />
@@ -81,13 +81,13 @@ export function LiveShowcase({ items }: { items: ShowcaseItem[] }) {
 
       {/* Caption + controls */}
       <div>
-        <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">
+        <p className="font-mono text-xs uppercase tracking-[0.16em] text-primary">
           Live on AWS
         </p>
-        <h3 className="mt-2 text-2xl font-semibold tracking-tight text-fg">
+        <h3 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
           {current.title}
         </h3>
-        <p className="mt-2 text-muted">{current.tagline}</p>
+        <p className="mt-2 text-muted-foreground">{current.tagline}</p>
 
         <div className="mt-5 flex flex-wrap gap-3">
           <a
@@ -114,12 +114,12 @@ export function LiveShowcase({ items }: { items: ShowcaseItem[] }) {
               aria-selected={i === active}
               onClick={() => dispatch(i)}
               className={`group flex items-center gap-3 rounded-lg px-2 py-1.5 text-left text-sm transition-colors ${
-                i === active ? "text-fg" : "text-subtle hover:text-muted"
+                i === active ? "text-foreground" : "text-subtle hover:text-muted-foreground"
               }`}
             >
               <span className="relative h-1 w-9 overflow-hidden rounded-full bg-border">
                 <span
-                  className={`absolute inset-y-0 left-0 rounded-full bg-accent transition-all ${
+                  className={`absolute inset-y-0 left-0 rounded-full bg-primary transition-all ${
                     i === active ? "w-full" : "w-0"
                   }`}
                 />

@@ -5,61 +5,122 @@
 /* ==========================================================================
    Design tokens
    --------------------------------------------------------------------------
-   Colors are stored as space-separated RGB channels so Tailwind can apply
-   opacity via `rgb(var(--token) / <alpha-value>)`.
+   The role names and the Tailwind mapping come from the shared brand kit
+   (@mikemiller-ai/web-brand-kit/preset). This block supplies only the values.
+   Keep it in sync with brands/mikemiller-ai/tokens.css in that repo — its
+   check-against-live.py compares the two and fails when they diverge.
 
-   >> To re-theme the whole site, change the --accent* values below. <<
-   The default accent is Indigo. Swap the three --accent lines in both
-   :root (light) and .dark (dark) to change it everywhere.
+   HSL channel triplets in the shadcn/ui convention, so the preset can apply an
+   alpha: hsl(var(--primary) / 0.12). Carried at one decimal place because
+   integer HSL does not round-trip the measured RGB values — it moves --primary
+   by 2/255 and most of the rest by 1.
+
+   >> To re-theme the whole site, change --primary and --ring below. <<
    ========================================================================== */
 
 :root {
   color-scheme: light;
 
-  --bg: 250 250 251;
-  --surface: 255 255 255;
-  --surface-2: 245 246 248;
-  --border: 226 228 233;
+  /* The preset's font-sans resolves var(--font-sans) and never names a
+     typeface — that is what lets one preset serve the house voice (Onest) and
+     the product voice (Geist). This is the one line that binds it here. */
+  --font-sans: var(--font-onest);
+  --font-mono: var(--font-geist-mono);
 
-  --fg: 15 23 42;
-  --muted: 71 85 105;
-  --subtle: 100 116 139;
+  --background:              240.0 11.1% 98.2%;   /* #FAFAFB */
+  --foreground:              222.2 47.4% 11.2%;   /* #0F172A */
 
-  /* Accent — Indigo */
-  --accent: 79 70 229;
-  --accent-fg: 255 255 255;
-  --accent-soft: 238 242 255;
+  --card:                      0.0  0.0% 100.0%;  /* #FFFFFF */
+  --card-foreground:         222.2 47.4% 11.2%;
+
+  --popover:                   0.0  0.0% 100.0%;
+  --popover-foreground:      222.2 47.4% 11.2%;
+
+  /* The brand indigo. In shadcn's contract this is --primary, not --accent:
+     --accent is the soft tinted fill below. */
+  --primary:                 243.4 75.4% 58.6%;   /* #4F46E5 */
+  --primary-foreground:        0.0  0.0% 100.0%;
+
+  --secondary:               220.0 17.6% 96.7%;   /* #F5F6F8 */
+  --secondary-foreground:    222.2 47.4% 11.2%;
+
+  /* A surface, not a text colour. The text that sits on it is
+     --muted-foreground. */
+  --muted:                   220.0 17.6% 96.7%;   /* #F5F6F8 */
+  --muted-foreground:        215.3 19.3% 34.5%;   /* #475569 */
+
+  --accent:                  225.9 100.0% 96.7%;  /* #EEF2FF */
+  --accent-foreground:       243.4 75.4% 58.6%;   /* #4F46E5 */
+
+  /* Shared with ResolveIQ by hue, but two steps darker: white on the lighter
+     value is 3.91:1 and fails AA for a button label. This clears 5.14. */
+  --destructive:             358.0 75.0% 48.0%;   /* #D61F25 */
+  --destructive-foreground:    0.0  0.0% 100.0%;
+
+  --border:                  222.9 13.7% 90.0%;   /* #E2E4E9 */
+  --input:                   222.9 13.7% 90.0%;
+  --ring:                    243.4 75.4% 58.6%;
+
+  /* --radius is the base and drives rounded-lg/md/sm on small chrome;
+     --radius-card is the card, and is what the kit's Card resolves through. */
+  --radius: 0.5rem;
+  --radius-card: 1.125rem;
+
+  /* Brand extension, outside the shadcn contract: a third text level below
+     --muted-foreground, for captions and metadata. Mapped in
+     tailwind.config.ts rather than the shared preset. */
+  --subtle:                  218.2 14.8% 43.7%;   /* #5F6B80 */
 }
 
 .dark {
   color-scheme: dark;
 
-  --bg: 9 12 20;
-  --surface: 17 22 34;
-  --surface-2: 24 30 45;
-  --border: 40 48 66;
+  --background:              223.6 37.9%  5.7%;   /* #090C14 */
+  --foreground:              222.0 38.5% 94.9%;   /* #EDF0F7 */
 
-  --fg: 237 240 247;
-  --muted: 160 172 194;
-  --subtle: 128 140 163;
+  --card:                    222.4 33.3% 10.0%;   /* #111622 */
+  --card-foreground:         222.0 38.5% 94.9%;
 
-  /* Accent — Indigo (lighter for contrast on dark) */
-  --accent: 129 140 248;
-  --accent-fg: 15 18 28;
-  --accent-soft: 32 34 60;
+  --popover:                 222.4 33.3% 10.0%;
+  --popover-foreground:      222.0 38.5% 94.9%;
+
+  /* The brand lightens on dark rather than holding: #4F46E5 is only 2.4:1 on
+     the dark ground, #818CF8 reaches 7.0:1. */
+  --primary:                 234.5 89.5% 73.9%;   /* #818CF8 */
+  --primary-foreground:      226.2 30.2%  8.4%;   /* #0F121C */
+
+  --secondary:               222.9 30.4% 13.5%;   /* #181E2D */
+  --secondary-foreground:    222.0 38.5% 94.9%;
+
+  --muted:                   222.9 30.4% 13.5%;   /* #181E2D */
+  --muted-foreground:        218.8 21.8% 69.4%;   /* #A0ACC2 */
+
+  --accent:                  235.7 30.4% 18.0%;   /* #20223C */
+  --accent-foreground:       234.5 89.5% 73.9%;   /* #818CF8 */
+
+  /* Lightened like --primary so it reads as text on every dark surface, with
+     an ink label rather than white for the same reason. */
+  --destructive:             358.0 72.0% 66.0%;   /* #E76A6E */
+  --destructive-foreground:  226.2 30.2%  8.4%;   /* #0F121C */
+
+  --border:                  221.5 24.5% 20.8%;   /* #283042 */
+  --input:                   221.5 24.5% 20.8%;
+  --ring:                    234.5 89.5% 73.9%;
+
+  --subtle:                  219.4 16.0% 57.1%;   /* #808CA3 */
 }
 
-/* Nav over the dark Evidence hero: locally light-tint the color tokens so all
+/* Nav over the dark Evidence hero: locally light-tint the colour tokens so all
    nav text/icons read on the dark hero, without touching each element. */
 header[data-over-hero="true"] {
-  --fg: 245 247 252;
-  --muted: 209 217 230;
-  --subtle: 165 176 194;
-  --border: 255 255 255;
+  --foreground:        222.9 53.8% 97.5%;
+  --muted-foreground:  217.1 29.6% 86.1%;
+  --subtle:            217.2 19.2% 70.4%;
+  --border:              0.0  0.0% 100.0%;
 }
 
 * {
-  border-color: rgb(var(--border));
+  border-color: hsl(var(--border));
 }
 
 html {
@@ -68,8 +129,8 @@ html {
 }
 
 body {
-  background-color: rgb(var(--bg));
-  color: rgb(var(--fg));
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
   font-feature-settings: "cv11", "ss01";
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -91,13 +152,13 @@ body {
 
 /* Consistent, visible focus for keyboard users */
 :focus-visible {
-  outline: 2px solid rgb(var(--accent));
+  outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
   border-radius: 2px;
 }
 
 ::selection {
-  background: rgb(var(--accent) / 0.22);
+  background: hsl(var(--primary) / 0.22);
 }
 
 /* --------------------------------------------------------------------------
@@ -105,7 +166,7 @@ body {
    -------------------------------------------------------------------------- */
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-content px-5 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-shell px-5 sm:px-6 lg:px-8;
   }
 
   .btn {
@@ -120,44 +181,44 @@ body {
     @apply h-9 px-4 text-[0.8125rem];
   }
   .btn-primary {
-    @apply border-transparent bg-accent text-accent-fg hover:bg-accent/90;
+    @apply border-transparent bg-primary text-primary-foreground hover:bg-primary/90;
   }
   .btn-secondary {
-    @apply border-border bg-surface text-fg hover:border-accent/50 hover:text-accent;
+    @apply border-border bg-card text-foreground hover:border-primary/50 hover:text-primary;
   }
   .btn-ghost {
-    @apply border-transparent bg-transparent text-muted hover:bg-surface-2 hover:text-fg;
+    @apply border-transparent bg-transparent text-muted-foreground hover:bg-muted hover:text-foreground;
   }
 
   .pill {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-border bg-surface-2
-           px-3 py-1 text-xs font-medium text-muted;
+    @apply inline-flex items-center gap-1.5 rounded-full border border-border bg-muted
+           px-3 py-1 text-xs font-medium text-muted-foreground;
   }
   .pill-accent {
-    @apply border-transparent bg-accent-soft text-accent;
+    @apply border-transparent bg-accent text-accent-foreground;
   }
 
   .card {
-    @apply rounded-2xl border border-border bg-surface shadow-soft transition-all duration-300;
+    @apply rounded-2xl border border-border bg-card shadow-soft transition-all duration-300;
   }
   .card-hover {
-    @apply hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-soft-lg;
+    @apply hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-soft-lg;
   }
 
   .eyebrow {
-    @apply font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent;
+    @apply font-mono text-xs font-medium uppercase tracking-[0.18em] text-primary;
   }
 
   .link-underline {
-    @apply text-accent underline decoration-accent/30 underline-offset-4
-           transition-colors hover:decoration-accent;
+    @apply text-primary underline decoration-primary/30 underline-offset-4
+           transition-colors hover:decoration-primary;
   }
 
   /* Subtle node/data-flow motif used behind hero + section headers */
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgb(var(--border) / 0.5) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(var(--border) / 0.5) 1px, transparent 1px);
+      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
     background-size: 3rem 3rem;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 72%);
     -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 72%);
@@ -220,52 +281,52 @@ body {
    Article / MDX prose
    -------------------------------------------------------------------------- */
 .prose-content {
-  @apply text-[1.0625rem] leading-8 text-muted;
+  @apply text-[1.0625rem] leading-8 text-muted-foreground;
 }
 .prose-content > * + * {
   @apply mt-6;
 }
 .prose-content h2 {
-  @apply mt-12 scroll-mt-28 text-2xl font-semibold tracking-tight text-fg;
+  @apply mt-12 scroll-mt-28 text-2xl font-semibold tracking-tight text-foreground;
 }
 .prose-content h3 {
-  @apply mt-9 scroll-mt-28 text-xl font-semibold tracking-tight text-fg;
+  @apply mt-9 scroll-mt-28 text-xl font-semibold tracking-tight text-foreground;
 }
 .prose-content h4 {
-  @apply mt-8 text-base font-semibold uppercase tracking-wide text-fg;
+  @apply mt-8 text-base font-semibold uppercase tracking-wide text-foreground;
 }
 .prose-content p {
-  @apply text-muted;
+  @apply text-muted-foreground;
 }
 .prose-content strong {
-  @apply font-semibold text-fg;
+  @apply font-semibold text-foreground;
 }
 .prose-content a {
   @apply link-underline;
 }
 .prose-content ul {
-  @apply list-disc space-y-2 pl-6 marker:text-accent;
+  @apply list-disc space-y-2 pl-6 marker:text-primary;
 }
 .prose-content ol {
   @apply list-decimal space-y-2 pl-6 marker:text-subtle;
 }
 .prose-content li {
-  @apply text-muted;
+  @apply text-muted-foreground;
 }
 .prose-content li::marker {
   @apply font-medium;
 }
 .prose-content blockquote {
-  @apply border-l-2 border-accent bg-surface-2 py-2 pl-5 pr-4 text-fg;
+  @apply border-l-2 border-primary bg-muted py-2 pl-5 pr-4 text-foreground;
 }
 .prose-content code {
-  @apply rounded-md border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-[0.85em] text-fg;
+  @apply rounded-md border border-border bg-muted px-1.5 py-0.5 font-mono text-[0.85em] text-foreground;
 }
 .prose-content pre {
-  @apply overflow-x-auto rounded-xl border border-border bg-surface-2 p-4 text-sm;
+  @apply overflow-x-auto rounded-xl border border-border bg-muted p-4 text-sm;
 }
 .prose-content pre code {
-  @apply border-0 bg-transparent p-0 text-muted;
+  @apply border-0 bg-transparent p-0 text-muted-foreground;
 }
 .prose-content hr {
   @apply my-10 border-border;
@@ -274,10 +335,10 @@ body {
   @apply block w-full overflow-x-auto text-left text-sm;
 }
 .prose-content th {
-  @apply border-b border-border py-2 pr-4 font-semibold text-fg;
+  @apply border-b border-border py-2 pr-4 font-semibold text-foreground;
 }
 .prose-content td {
-  @apply border-b border-border py-2 pr-4 align-top text-muted;
+  @apply border-b border-border py-2 pr-4 align-top text-muted-foreground;
 }
 
 /* --------------------------------------------------------------------------
@@ -316,7 +377,7 @@ body {
   article {
     break-inside: avoid;
   }
-  [class*="bg-surface"] {
+  [class*="bg-card"] {
     background: #fff !important;
   }
 

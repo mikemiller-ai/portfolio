@@ -12,6 +12,20 @@ REGION="us-east-1"
 
 cd "$(dirname "$0")/.."
 
+# This repo lives in iCloud Drive, which resolves a sync collision by writing
+# "name 2.ext" next to the original. public/ is copied verbatim into out/, so an
+# unnoticed conflict copy ships to production as a junk url — and one of them was
+# a duplicate of the signature mark, whose directory is meant to be append-only.
+# Cheaper to refuse the build than to clean S3 afterwards.
+echo "==> Checking for iCloud conflict copies"
+conflicts=$(find public src scripts -regex '.* [0-9]\.[A-Za-z0-9]+' 2>/dev/null || true)
+if [ -n "$conflicts" ]; then
+  echo "Refusing to build — iCloud conflict copies present:"
+  echo "$conflicts" | sed 's/^/  /'
+  echo "Check each against its original, then delete them."
+  exit 1
+fi
+
 echo "==> Building static export"
 rm -rf .next out
 NEXT_OUTPUT=export npm run build

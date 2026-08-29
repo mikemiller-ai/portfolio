@@ -69,7 +69,7 @@ export default async function ProjectDetailPage({
       <article className="container-page py-12 sm:py-16">
         <Link
           href="/projects"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-accent"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden />
           All projects
@@ -85,10 +85,10 @@ export default async function ProjectDetailPage({
               </span>
             ))}
           </div>
-          <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
+          <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             {frontmatter.title}
           </h1>
-          <p className="mt-5 text-pretty text-lg leading-relaxed text-muted">
+          <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
             {frontmatter.summary}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -123,7 +123,7 @@ export default async function ProjectDetailPage({
               href={frontmatter.liveUrl ?? frontmatter.coverImage}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block max-w-3xl overflow-hidden rounded-2xl border border-border bg-surface-2 shadow-soft"
+              className="group block max-w-3xl overflow-hidden rounded-2xl border border-border bg-muted shadow-soft"
             >
               <Image
                 src={frontmatter.coverImage}
@@ -159,7 +159,7 @@ export default async function ProjectDetailPage({
                 <ArrowLeft className="h-3.5 w-3.5" aria-hidden />
                 Previous
               </span>
-              <span className="mt-1 font-medium text-fg group-hover:text-accent">
+              <span className="mt-1 font-medium text-foreground group-hover:text-primary">
                 {prev.frontmatter.title}
               </span>
             </Link>
@@ -175,7 +175,7 @@ export default async function ProjectDetailPage({
                 Next
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden />
               </span>
-              <span className="mt-1 font-medium text-fg group-hover:text-accent">
+              <span className="mt-1 font-medium text-foreground group-hover:text-primary">
                 {next.frontmatter.title}
               </span>
             </Link>

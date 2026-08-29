@@ -2,7 +2,7 @@
  * mikemiller.ai lockup — the approved navbar logo from the brand kit
  * (`07-web/navbar-lockup.svg`). Inlined rather than <img> so the wordmark and
  * hairline can use `currentColor`: that makes one file cover light, dark, and
- * the nav's transparent over-the-hero state, where --fg is tinted light.
+ * the nav's transparent over-the-hero state, where --foreground is tinted light.
  *
  * The M mark and the ".ai" keep the fixed brand gradient (#1E58F7 → #8A5CF4)
  * in every theme, per the guidelines. Do not redraw or re-trace the paths.

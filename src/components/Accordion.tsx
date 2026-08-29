@@ -36,7 +36,7 @@ export function Accordion({
     });
 
   return (
-    <div className="divide-y divide-border overflow-hidden rounded-2xl border border-border bg-surface">
+    <div className="divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
       {items.map((item) => {
         const isOpen = open.has(item.id);
         const panelId = `${baseId}-${item.id}`;
@@ -48,10 +48,10 @@ export function Accordion({
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(item.id)}
-                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-surface-2"
+                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-muted"
               >
                 <span>
-                  <span className="text-[0.95rem] font-semibold text-fg">
+                  <span className="text-[0.95rem] font-semibold text-foreground">
                     {item.question}
                   </span>
                   {item.meta ? (
@@ -63,7 +63,7 @@ export function Accordion({
                 <ChevronDown
                   className={cn(
                     "h-5 w-5 shrink-0 text-subtle transition-transform duration-300",
-                    isOpen && "rotate-180 text-accent",
+                    isOpen && "rotate-180 text-primary",
                   )}
                   aria-hidden
                 />
@@ -72,7 +72,7 @@ export function Accordion({
             <div
               id={panelId}
               hidden={!isOpen}
-              className="px-5 pb-5 pt-0 text-sm leading-relaxed text-muted"
+              className="px-5 pb-5 pt-0 text-sm leading-relaxed text-muted-foreground"
             >
               {item.content}
             </div>

@@ -46,7 +46,7 @@ export function InteractiveDiagram({ diagram }: { diagram: ArchitectureDiagram }
         {/* Diagram canvas — min-w-0 lets the scroll wrapper below shrink to the
             viewport so the 640px canvas scrolls inside it instead of the page. */}
         <div className="min-w-0">
-          <div className="overflow-x-auto rounded-2xl border border-border bg-surface-2 p-4">
+          <div className="overflow-x-auto rounded-2xl border border-border bg-muted p-4">
             <div className="relative mx-auto min-w-[640px] aspect-[640/440]">
               {/* Connector lines */}
               <svg
@@ -107,11 +107,11 @@ export function InteractiveDiagram({ diagram }: { diagram: ArchitectureDiagram }
                       "absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-xl border px-3 py-2 text-left text-xs font-medium shadow-soft transition-all",
                       toneClasses[tone],
                       isSelected
-                        ? "z-10 scale-105 ring-2 ring-accent ring-offset-2 ring-offset-surface-2"
+                        ? "z-10 scale-105 ring-2 ring-primary ring-offset-2 ring-offset-muted"
                         : "hover:scale-[1.03]",
                     )}
                   >
-                    <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-white/70 font-mono text-[0.7rem] font-semibold text-fg dark:bg-black/30">
+                    <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-white/70 font-mono text-[0.7rem] font-semibold text-foreground dark:bg-black/30">
                       {node.num}
                     </span>
                     <span className="whitespace-nowrap">{node.label}</span>
@@ -140,15 +140,15 @@ export function InteractiveDiagram({ diagram }: { diagram: ArchitectureDiagram }
         <aside
           id={panelId}
           aria-live="polite"
-          className="rounded-2xl border border-border bg-surface p-5"
+          className="rounded-2xl border border-border bg-card p-5"
         >
           {selected ? (
             <>
               <div className="flex items-center gap-2.5">
-                <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent font-mono text-sm font-semibold text-accent-fg">
+                <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary font-mono text-sm font-semibold text-primary-foreground">
                   {selected.num}
                 </span>
-                <h3 className="text-base font-semibold tracking-tight text-fg">
+                <h3 className="text-base font-semibold tracking-tight text-foreground">
                   {selected.label}
                 </h3>
               </div>
@@ -157,25 +157,25 @@ export function InteractiveDiagram({ diagram }: { diagram: ArchitectureDiagram }
                   <dt className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-subtle">
                     Purpose
                   </dt>
-                  <dd className="mt-1 text-muted">{selected.purpose}</dd>
+                  <dd className="mt-1 text-muted-foreground">{selected.purpose}</dd>
                 </div>
                 <div>
                   <dt className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-subtle">
                     Why it was chosen
                   </dt>
-                  <dd className="mt-1 text-muted">{selected.why}</dd>
+                  <dd className="mt-1 text-muted-foreground">{selected.why}</dd>
                 </div>
                 <div>
                   <dt className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-subtle">
                     Alternatives
                   </dt>
-                  <dd className="mt-1 text-muted">{selected.alternatives}</dd>
+                  <dd className="mt-1 text-muted-foreground">{selected.alternatives}</dd>
                 </div>
                 <div>
                   <dt className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-subtle">
                     Risks &amp; trade-offs
                   </dt>
-                  <dd className="mt-1 text-muted">{selected.risks}</dd>
+                  <dd className="mt-1 text-muted-foreground">{selected.risks}</dd>
                 </div>
               </dl>
             </>
@@ -184,23 +184,23 @@ export function InteractiveDiagram({ diagram }: { diagram: ArchitectureDiagram }
       </div>
 
       {/* Accessible text alternative — full description not dependent on the image. */}
-      <details className="mt-6 rounded-xl border border-border bg-surface-2 p-4 text-sm">
-        <summary className="cursor-pointer font-medium text-fg">
+      <details className="mt-6 rounded-xl border border-border bg-muted p-4 text-sm">
+        <summary className="cursor-pointer font-medium text-foreground">
           Text description of this diagram
         </summary>
-        <p className="mt-3 text-muted">{diagram.summary}</p>
+        <p className="mt-3 text-muted-foreground">{diagram.summary}</p>
         <ol className="mt-3 space-y-2">
           {diagram.nodes.map((node) => (
-            <li key={node.id} className="text-muted">
-              <span className="font-medium text-fg">
+            <li key={node.id} className="text-muted-foreground">
+              <span className="font-medium text-foreground">
                 {node.num}. {node.label}:
               </span>{" "}
               {node.purpose}
             </li>
           ))}
         </ol>
-        <p className="mt-3 text-muted">
-          <span className="font-medium text-fg">Flow:</span>{" "}
+        <p className="mt-3 text-muted-foreground">
+          <span className="font-medium text-foreground">Flow:</span>{" "}
           {diagram.edges
             .map((e) => {
               const a = diagram.nodes.find((n) => n.id === e.from)?.label;

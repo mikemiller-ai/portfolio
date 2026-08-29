@@ -37,3 +37,12 @@ next-env.d.ts
 # editor
 .vscode/
 .idea/
+
+# iCloud conflict copies. This repo lives in iCloud Drive, which resolves a
+# sync collision by writing "name 2.ext" beside the original. Nineteen of them
+# appeared during one editing session, including a duplicate of
+# public/brand/signature-mark@2x.png — and because public/ is copied verbatim
+# into out/, they would have been deployed to production as junk urls.
+# scripts/deploy.sh refuses to build while any are present.
+*\ 2.*
+*\ 3.*

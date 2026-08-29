@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@mikemiller-ai/web-brand-kit": "github:mikemiller-ai/web-brand-kit#v1.0.2",
     "clsx": "^2.1.1",
     "geist": "^1.7.2",
     "gray-matter": "^4.0.3",

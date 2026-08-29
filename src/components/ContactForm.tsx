@@ -57,7 +57,7 @@ function validate(fields: Fields): Errors {
 }
 
 const fieldBase =
-  "w-full rounded-lg border bg-surface px-3.5 py-2.5 text-sm text-fg placeholder:text-subtle transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent";
+  "w-full rounded-lg border bg-card px-3.5 py-2.5 text-sm text-foreground placeholder:text-subtle transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary";
 
 export function ContactForm() {
   const [fields, setFields] = useState<Fields>(emptyFields);
@@ -122,15 +122,15 @@ export function ContactForm() {
     return (
       <div
         role="status"
-        className="flex flex-col items-center rounded-2xl border border-border bg-surface p-8 text-center"
+        className="flex flex-col items-center rounded-2xl border border-border bg-card p-8 text-center"
       >
         <span className="grid h-12 w-12 place-items-center rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
           <CheckCircle2 className="h-6 w-6" aria-hidden />
         </span>
-        <h3 className="mt-4 text-lg font-semibold text-fg">
+        <h3 className="mt-4 text-lg font-semibold text-foreground">
           Thanks, your message is on its way
         </h3>
-        <p className="mt-2 max-w-sm text-sm text-muted">
+        <p className="mt-2 max-w-sm text-sm text-muted-foreground">
           It will land in my inbox and I will get back to you soon. If it is
           urgent, you can also reach me directly at the address below.
         </p>
@@ -274,10 +274,10 @@ function Label({
   children: React.ReactNode;
 }) {
   return (
-    <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-medium text-fg">
+    <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-medium text-foreground">
       {children}
       {required ? (
-        <span className="text-accent" aria-hidden>
+        <span className="text-primary" aria-hidden>
           {" "}
           *
         </span>

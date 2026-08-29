@@ -87,13 +87,13 @@ export function Hero() {
       </section>
 
       {/* Credibility strip — the first light element of the body. */}
-      <div className="border-b border-border bg-surface">
+      <div className="border-b border-border bg-card">
         <div className="container-page flex flex-wrap items-center gap-x-6 gap-y-2 py-4">
           <span className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-subtle">
             Focus areas
           </span>
           {capabilities.map((cap) => (
-            <span key={cap} className="text-sm font-medium text-muted">
+            <span key={cap} className="text-sm font-medium text-muted-foreground">
               {cap}
             </span>
           ))}

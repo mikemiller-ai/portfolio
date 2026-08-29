@@ -120,12 +120,12 @@ export function CoverArt({
     <div
       aria-hidden
       className={cn(
-        "relative overflow-hidden rounded-xl border border-border bg-surface-2",
+        "relative overflow-hidden rounded-xl border border-border bg-muted",
         className,
       )}
     >
       <div className="absolute inset-0 bg-grid opacity-60" />
-      <div className="absolute inset-0 bg-gradient-to-br from-accent-soft/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/60 to-transparent" />
       <svg
         viewBox="0 0 360 180"
         className={cn("relative w-full", compact ? "h-28" : "h-44")}

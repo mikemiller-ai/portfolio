@@ -199,10 +199,10 @@ export default function HowIThinkPage() {
       <Section leading>
         <div className="max-w-3xl">
           <p className="eyebrow mb-3">How I think</p>
-          <h1 className="text-balance text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
+          <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             The questions come before the architecture
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-muted">
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             Anyone can list technologies. What actually matters in a customer
             conversation is judgment — knowing which questions to ask, and being
             willing to recommend the simpler answer. Here&apos;s how I reason
@@ -212,7 +212,7 @@ export default function HowIThinkPage() {
       </Section>
 
       {/* Lead scenario */}
-      <div className="border-t border-border bg-surface">
+      <div className="border-t border-border bg-card">
         <Section>
           <SectionHeading
             eyebrow="Worked scenario"
@@ -223,13 +223,13 @@ export default function HowIThinkPage() {
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {discoveryGroups.map((group, i) => (
               <Reveal key={group.label} delay={i * 50} as="article" className="card p-6">
-                <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">
+                <p className="font-mono text-xs uppercase tracking-[0.14em] text-primary">
                   {String(i + 1).padStart(2, "0")} · {group.label}
                 </p>
                 <ul className="mt-4 space-y-3">
                   {group.questions.map((q) => (
-                    <li key={q} className="flex gap-2.5 text-sm leading-relaxed text-muted">
-                      <HelpCircle className="mt-0.5 h-4 w-4 shrink-0 text-accent/70" aria-hidden />
+                    <li key={q} className="flex gap-2.5 text-sm leading-relaxed text-muted-foreground">
+                      <HelpCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary/70" aria-hidden />
                       <span>{q}</span>
                     </li>
                   ))}
@@ -238,7 +238,7 @@ export default function HowIThinkPage() {
             ))}
           </div>
 
-          <p className="mt-8 max-w-2xl text-pretty text-muted">
+          <p className="mt-8 max-w-2xl text-pretty text-muted-foreground">
             Notice how few of these are about technology. By the time I&apos;ve
             worked through them, the architecture usually designs itself — and
             sometimes the answer is that they don&apos;t need a chatbot at all.

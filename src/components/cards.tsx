@@ -31,7 +31,7 @@ export function ProjectCard({ project }: { project: ProjectFrontmatter }) {
     <article className="card card-hover group relative flex h-full flex-col overflow-hidden">
       <div className="relative p-3">
         {project.coverImage ? (
-          <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-surface-2">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-muted">
             <Image
               src={project.coverImage}
               alt={`${project.title} interface`}
@@ -59,18 +59,18 @@ export function ProjectCard({ project }: { project: ProjectFrontmatter }) {
             </span>
           ))}
         </div>
-        <h3 className="text-lg font-semibold tracking-tight text-fg">
+        <h3 className="text-lg font-semibold tracking-tight text-foreground">
           <Link href={`/projects/${project.slug}`} className="after:absolute after:inset-0">
             {project.title}
           </Link>
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted">{project.summary}</p>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
 
-        <div className="mt-4 rounded-lg border border-border bg-surface-2/60 p-3">
+        <div className="mt-4 rounded-lg border border-border bg-muted/60 p-3">
           <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-subtle">
             Problem
           </p>
-          <p className="mt-1 text-sm text-muted">{project.problem}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{project.problem}</p>
         </div>
 
         <div className="mt-auto flex items-center justify-between gap-3 pt-5">
@@ -79,7 +79,7 @@ export function ProjectCard({ project }: { project: ProjectFrontmatter }) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative z-10 inline-flex items-center gap-1 text-sm font-medium text-muted transition-colors hover:text-accent"
+              className="relative z-10 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
               <ExternalLink className="h-3.5 w-3.5" aria-hidden />
               Live demo
@@ -93,7 +93,7 @@ export function ProjectCard({ project }: { project: ProjectFrontmatter }) {
               ))}
             </div>
           )}
-          <span className="inline-flex items-center gap-1 text-sm font-medium text-accent">
+          <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
             Case study
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
           </span>
@@ -141,7 +141,7 @@ export function ArchitectureCard({
             </span>
           ) : null}
         </div>
-        <h3 className="mt-2 text-lg font-semibold tracking-tight text-fg">
+        <h3 className="mt-2 text-lg font-semibold tracking-tight text-foreground">
           <Link
             href={`/architecture/${arch.slug}`}
             className="after:absolute after:inset-0"
@@ -149,7 +149,7 @@ export function ArchitectureCard({
             {arch.title}
           </Link>
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted">{arch.useCase}</p>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{arch.useCase}</p>
 
         <div className="mt-4 flex flex-wrap gap-1.5">
           {arch.services.slice(0, 4).map((s) => (
@@ -159,7 +159,7 @@ export function ArchitectureCard({
           ))}
         </div>
 
-        <div className="mt-auto flex items-center gap-1 pt-5 text-sm font-medium text-accent">
+        <div className="mt-auto flex items-center gap-1 pt-5 text-sm font-medium text-primary">
           <Layers className="h-4 w-4" aria-hidden />
           <span>Explore architecture</span>
           <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
@@ -186,12 +186,12 @@ export function ArticleCard({ article }: { article: ArticleFrontmatter }) {
           {article.readingTime}
         </span>
       </div>
-      <h3 className="mt-3 text-xl font-semibold tracking-tight text-fg">
+      <h3 className="mt-3 text-xl font-semibold tracking-tight text-foreground">
         <Link href={`/insights/${article.slug}`} className="after:absolute after:inset-0">
           {article.title}
         </Link>
       </h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
         {article.subtitle}
       </p>
       <div className="mt-4 flex flex-wrap gap-1.5">

@@ -34,10 +34,10 @@ export default function InsightsPage() {
       <Section leading>
         <div className="max-w-3xl">
           <p className="eyebrow mb-3">Insights</p>
-          <h1 className="text-balance text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
+          <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             A few things worth writing down
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-muted">
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             Not a high-frequency blog — a small set of durable pieces on the
             decisions that come up again and again in enterprise AI. Opinionated,
             practical, and honest about trade-offs.
