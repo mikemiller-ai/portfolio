@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Linkedin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { Section, SectionHeading } from "@/components/primitives";
 import { ProcessSteps } from "@/components/ProcessSteps";
@@ -9,7 +9,6 @@ import { LiveShowcase, type ShowcaseItem } from "@/components/LiveShowcase";
 import { Reveal } from "@/components/Reveal";
 import { BookCallButton, ResumeButton } from "@/components/SiteLinks";
 import { getFeaturedProjects } from "@/lib/content";
-import { siteConfig } from "@/data/siteConfig";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata();
@@ -155,21 +154,14 @@ export default function HomePage() {
               to get an AI initiative to production — I&apos;m glad to help think
               it through.
             </p>
+            {/* Two choices only. A closing CTA should ask for one thing, and
+                these cover the two states a reader is actually in: ready to
+                talk, or wanting to evaluate first. "Explore Projects" sent
+                people back up a page they had just scrolled, and LinkedIn is
+                already in both the nav and the footer. */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <BookCallButton className="btn-evidence border-transparent" source="home-cta" />
               <ResumeButton variant="ghost" label="View Resume" className="btn-on-dark" />
-              <Link href="/projects" className="btn btn-on-dark btn-md">
-                Explore Projects
-              </Link>
-              <a
-                href={siteConfig.socials.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-on-dark btn-md"
-              >
-                <Linkedin className="h-4 w-4" aria-hidden />
-                Connect on LinkedIn
-              </a>
             </div>
           </div>
         </div>
