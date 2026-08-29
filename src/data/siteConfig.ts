@@ -24,7 +24,10 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mikemiller.ai",
 
   // Documented single-file replacement points (see README).
-  resumePath: "/resume/michael-miller-resume.pdf",
+  // These live at stable urls, so replacing the file is not enough on its own:
+  // browsers that already downloaded the old copy would keep serving it. Bump
+  // the ?v= whenever the file behind one of these changes.
+  resumePath: "/resume/michael-miller-resume.pdf?v=2026-08",
   headshotPath: "/images/michael-miller-headshot.jpg",
   ogImagePath: "/images/og-image.png",
 

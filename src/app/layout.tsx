@@ -22,16 +22,18 @@ export const metadata: Metadata = {
   ...buildMetadata(),
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
-  // Brand-kit favicon set (see public/ — generated from 03-favicon).
+  // Brand-kit favicon set (see public/ — generated from 03-favicon). The ?v=
+  // matches siteConfig.resumePath: icons sit at stable urls, so a replaced file
+  // needs a new url or already-cached browsers keep the old icon. Bump on swap.
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "32x32" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.ico?v=2026-08", sizes: "32x32" },
+      { url: "/favicon.svg?v=2026-08", type: "image/svg+xml" },
+      { url: "/icon-192.png?v=2026-08", type: "image/png", sizes: "192x192" },
     ],
-    apple: [{ url: "/apple-touch-icon-180.png", sizes: "180x180" }],
+    apple: [{ url: "/apple-touch-icon-180.png?v=2026-08", sizes: "180x180" }],
   },
-  manifest: "/site.webmanifest",
+  manifest: "/site.webmanifest?v=2026-08",
 };
 
 export const viewport: Viewport = {

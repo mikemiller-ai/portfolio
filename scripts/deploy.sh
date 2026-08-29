@@ -16,10 +16,20 @@ echo "==> Building static export"
 rm -rf .next out
 NEXT_OUTPUT=export npm run build
 
-echo "==> Syncing hashed assets (long cache)"
-aws s3 sync out/ "s3://$BUCKET/" --delete \
-  --exclude "*.html" --exclude "*.xml" --exclude "*.txt" \
+# Only /_next/ is content-hashed, so only /_next/ may be immutable. Everything
+# else (the résumé PDF, favicons, manifest, images) lives at a STABLE url whose
+# content changes on redeploy — marking those immutable makes returning visitors
+# keep the old file for a year, and a CloudFront invalidation cannot fix it
+# because the browser never revalidates. Bump the ?v= in siteConfig/layout when
+# replacing one of those files so already-cached browsers refetch.
+echo "==> Syncing hashed build assets (immutable)"
+aws s3 sync out/_next/ "s3://$BUCKET/_next/" --delete \
   --cache-control "public,max-age=31536000,immutable" --only-show-errors
+
+echo "==> Syncing stable-url assets (must revalidate)"
+aws s3 sync out/ "s3://$BUCKET/" --delete --exclude "_next/*" \
+  --exclude "*.html" --exclude "*.xml" --exclude "*.txt" \
+  --cache-control "public,max-age=3600,must-revalidate" --only-show-errors
 
 echo "==> Syncing HTML (short cache)"
 aws s3 sync out/ "s3://$BUCKET/" \
