@@ -37,6 +37,18 @@ aws s3 sync out/ "s3://$BUCKET/" \
   --content-type "text/html; charset=utf-8" \
   --cache-control "public,max-age=60,must-revalidate" --only-show-errors
 
+# Next's App Router fetches these RSC payloads instead of the html when the
+# visitor navigates client-side (clicking a nav link rather than loading a url).
+# They are the navigation equivalent of the html and must expire like it.
+# Every pass above excludes *.txt, so before this existed they were never
+# uploaded at all: direct page loads served fresh html while client-side
+# navigation served payloads from whenever they first landed. robots.txt is
+# swept up here too and then corrected below.
+echo "==> Syncing RSC payloads (short cache)"
+aws s3 sync out/ "s3://$BUCKET/" \
+  --exclude "*" --include "*.txt" \
+  --cache-control "public,max-age=60,must-revalidate" --only-show-errors
+
 # Correct content types for the metadata files.
 aws s3 cp "s3://$BUCKET/sitemap.xml" "s3://$BUCKET/sitemap.xml" \
   --content-type "application/xml" --metadata-directive REPLACE \
