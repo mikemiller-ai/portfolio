@@ -20,7 +20,7 @@ export const certifications: Certification[] = [
   {
     name: "AWS Certified Solutions Architect – Associate (SAA-C03)",
     issuer: "Amazon Web Services",
-    date: "Exam scheduled Aug 2026",
+    date: "Exam scheduled Sep 2026",
     status: "In progress",
   },
   {
