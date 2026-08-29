@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { capabilities } from "@/data/expertise";
-import { ResumeButton } from "./SiteLinks";
+import { BookCallButton, ResumeButton } from "./SiteLinks";
 
 export function Hero() {
   // Split the role so the second half gets the Evidence gradient for a bit of pop.
@@ -45,9 +45,7 @@ export function Hero() {
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
               <ResumeButton variant="ghost" className="btn-on-dark" />
-              <Link href="/contact" className="btn btn-on-dark btn-md">
-                Contact Me
-              </Link>
+              <BookCallButton className="btn-on-dark" source="hero" />
             </div>
 
             <p className="mt-6 inline-flex items-center gap-1.5 text-sm text-slate-400">

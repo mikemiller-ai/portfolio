@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { Section, JsonLd } from "@/components/primitives";
 import { ContactForm } from "@/components/ContactForm";
+import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { ResumeButton } from "@/components/SiteLinks";
 import { siteConfig } from "@/data/siteConfig";
 import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
@@ -55,7 +56,29 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+        {/* Booking first: it is the higher-intent action, and anyone who would
+            rather write than commit to a slot still has the form below. */}
+        <div id="book" className="mt-12 scroll-mt-24">
+          <h2 className="text-2xl font-semibold tracking-tight text-fg">
+            Book a call
+          </h2>
+          <p className="mt-2 max-w-2xl text-muted">
+            Pick a time that suits you and you&apos;ll get a calendar invite
+            straight away. Times shown are in your own timezone.
+          </p>
+          <CalendlyEmbed className="mt-6" />
+        </div>
+
+        <div className="mt-16 border-t border-border pt-12">
+          <h2 className="text-2xl font-semibold tracking-tight text-fg">
+            Prefer to write first?
+          </h2>
+          <p className="mt-2 max-w-2xl text-muted">
+            Reach me directly, or send a message and I&apos;ll come back to you.
+          </p>
+        </div>
+
+        <div className="mt-8 grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           {/* Left: direct channels */}
           <div className="space-y-4">
             {channels.map((c) => (

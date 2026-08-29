@@ -13,7 +13,9 @@ export type AnalyticsEvent =
   | "architecture_viewed"
   | "github_clicked"
   | "linkedin_clicked"
-  | "contact_form_submitted";
+  | "contact_form_submitted"
+  | "booking_opened"
+  | "booking_widget_shown";
 
 export function trackEvent(
   event: AnalyticsEvent,

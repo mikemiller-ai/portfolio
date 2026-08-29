@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
-import { Check, Download, Github, Link2, Linkedin, Mail, Printer } from "lucide-react";
+import { CalendarDays, Check, Download, Github, Link2, Linkedin, Mail, Printer } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -29,6 +30,36 @@ export function ResumeButton({
       <Download className="h-4 w-4" aria-hidden />
       {label}
     </a>
+  );
+}
+
+/**
+ * Sends people to the scheduler on /contact rather than straight to Calendly:
+ * the page keeps the message form alongside it for anyone who would rather
+ * write than book, and it keeps the visitor on the site.
+ */
+export function BookCallButton({
+  variant = "secondary",
+  size = "md",
+  label = "Book a call",
+  className,
+  source = "unknown",
+}: {
+  variant?: "primary" | "secondary" | "ghost";
+  size?: "sm" | "md";
+  label?: string;
+  className?: string;
+  source?: string;
+}) {
+  return (
+    <Link
+      href="/contact#book"
+      onClick={() => trackEvent("booking_opened", { source })}
+      className={cn("btn", `btn-${variant}`, `btn-${size}`, className)}
+    >
+      <CalendarDays className="h-4 w-4" aria-hidden />
+      {label}
+    </Link>
   );
 }
 

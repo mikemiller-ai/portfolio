@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { primaryNav, siteConfig } from "@/data/siteConfig";
-import { SocialLinks, ResumeButton } from "./SiteLinks";
+import { SocialLinks, ResumeButton, BookCallButton } from "./SiteLinks";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -46,6 +46,7 @@ export function Footer() {
             <p className="font-mono text-xs uppercase tracking-[0.14em] text-subtle">
               Connect
             </p>
+            <BookCallButton size="sm" variant="secondary" source="footer" />
             <ResumeButton size="sm" variant="secondary" />
             <SocialLinks showEmail className="-ml-2" />
           </div>
