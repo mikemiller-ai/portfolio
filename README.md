@@ -90,7 +90,7 @@ status: "Prototype"
 order: 5                 # controls list + prev/next order
 categories: [Generative AI, RAG]   # also power the Projects filters
 technologies: [Snowflake, Python]
-githubUrl: "https://github.com/mikemillerjr16/…"
+githubUrl: "https://github.com/mikemiller-ai/…"
 ---
 
 ## Overview

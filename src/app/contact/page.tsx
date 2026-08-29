@@ -23,13 +23,13 @@ const channels = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "in/mikemillerjr16",
+    value: "in/mikemillerai",
     href: siteConfig.socials.linkedin,
   },
   {
     icon: Github,
     label: "GitHub",
-    value: "mikemillerjr16",
+    value: "mikemiller-ai",
     href: siteConfig.socials.github,
   },
 ];

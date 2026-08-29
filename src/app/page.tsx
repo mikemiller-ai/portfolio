@@ -7,7 +7,7 @@ import { ExpertiseGrid } from "@/components/ExpertiseGrid";
 import { ProjectCard } from "@/components/cards";
 import { LiveShowcase, type ShowcaseItem } from "@/components/LiveShowcase";
 import { Reveal } from "@/components/Reveal";
-import { ResumeButton } from "@/components/SiteLinks";
+import { BookCallButton, ResumeButton } from "@/components/SiteLinks";
 import { getFeaturedProjects } from "@/lib/content";
 import { siteConfig } from "@/data/siteConfig";
 import { buildMetadata } from "@/lib/seo";
@@ -156,7 +156,8 @@ export default function HomePage() {
               it through.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <ResumeButton variant="ghost" label="View Resume" className="btn-evidence border-transparent" />
+              <BookCallButton className="btn-evidence border-transparent" source="home-cta" />
+              <ResumeButton variant="ghost" label="View Resume" className="btn-on-dark" />
               <Link href="/projects" className="btn btn-on-dark btn-md">
                 Explore Projects
               </Link>

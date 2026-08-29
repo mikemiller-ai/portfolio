@@ -18,7 +18,7 @@ export const siteConfig = {
   // Privacy-conscious: general location only, no phone number or home address.
   location: "Cincinnati, Ohio area",
 
-  email: "mike.millerjr16@gmail.com",
+  email: "mike@mikemiller.ai",
 
   // Canonical site URL (falls back to localhost during development).
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mikemiller.ai",
@@ -27,18 +27,21 @@ export const siteConfig = {
   // These live at stable urls, so replacing the file is not enough on its own:
   // browsers that already downloaded the old copy would keep serving it. Bump
   // the ?v= whenever the file behind one of these changes.
-  resumePath: "/resume/michael-miller-resume.pdf?v=2026-08",
+  resumePath: "/resume/michael-miller-resume.pdf?v=2026-09",
   headshotPath: "/images/michael-miller-headshot.jpg",
   ogImagePath: "/images/og-image.png",
 
   // Scheduling. Embedded on /contact and linked from the hero/footer.
   //
   // The options are listed here rather than letting Calendly render its own
-  // list: Calendly's inline widget only self-sizes for a SINGLE event type, so
-  // embedding the profile page collapses the iframe to ~150px and hides the
-  // choices. Rendering the picker here keeps all three visible, in site styling.
-  // `slug` must match the event's Calendly url (it is not derived from `label`).
-  calendlyUrl: "https://calendly.com/mike-millerjr16",
+  // list, so all three stay visible in site styling, land in the prerendered
+  // HTML, and drop the visitor straight onto a calendar instead of making them
+  // click through inside the iframe.
+  //
+  // `slug` must match the event's Calendly url (it is NOT derived from `label`,
+  // and renaming an event in Calendly does not change its slug). Changing the
+  // account handle changes calendlyUrl but leaves these slugs alone.
+  calendlyUrl: "https://calendly.com/mikemillerai",
   calendlyEvents: [
     {
       label: "30 minutes",
@@ -58,8 +61,8 @@ export const siteConfig = {
   ],
 
   socials: {
-    linkedin: "https://www.linkedin.com/in/mikemillerjr16",
-    github: "https://github.com/mikemillerjr16",
+    linkedin: "https://www.linkedin.com/in/mikemillerai/",
+    github: "https://github.com/mikemiller-ai",
   },
 } as const;
 

@@ -27,13 +27,13 @@ export const metadata: Metadata = {
   // needs a new url or already-cached browsers keep the old icon. Bump on swap.
   icons: {
     icon: [
-      { url: "/favicon.ico?v=2026-08", sizes: "32x32" },
-      { url: "/favicon.svg?v=2026-08", type: "image/svg+xml" },
-      { url: "/icon-192.png?v=2026-08", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.ico?v=2026-09", sizes: "32x32" },
+      { url: "/favicon.svg?v=2026-09", type: "image/svg+xml" },
+      { url: "/icon-192.png?v=2026-09", type: "image/png", sizes: "192x192" },
     ],
-    apple: [{ url: "/apple-touch-icon-180.png?v=2026-08", sizes: "180x180" }],
+    apple: [{ url: "/apple-touch-icon-180.png?v=2026-09", sizes: "180x180" }],
   },
-  manifest: "/site.webmanifest?v=2026-08",
+  manifest: "/site.webmanifest?v=2026-09",
 };
 
 export const viewport: Viewport = {
