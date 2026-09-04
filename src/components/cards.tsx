@@ -36,7 +36,7 @@ export function ProjectCard({ project }: { project: ProjectFrontmatter }) {
               src={project.coverImage}
               alt={`${project.title} interface`}
               fill
-              sizes="(min-width: 1024px) 24rem, (min-width: 640px) 45vw, 90vw"
+              sizes="(min-width: 1024px) 33rem, (min-width: 640px) 45vw, 90vw"
               className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
             />
           </div>

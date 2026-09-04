@@ -48,7 +48,7 @@ export default function ProjectsPage() {
         <div className="max-w-3xl">
           <p className="eyebrow mb-3">Featured projects</p>
           <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Three live AWS apps, not slideware
+            Four live AWS apps, not slideware
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             Each of these is a working, AWS-native product you can open and try.
@@ -59,7 +59,7 @@ export default function ProjectsPage() {
         </div>
 
         <div className="mt-12">
-          <FilterableGrid items={items} filters={filters} />
+          <FilterableGrid items={items} filters={filters} columns="two" />
         </div>
       </Section>
     </>

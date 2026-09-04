@@ -21,6 +21,8 @@ const SHOWCASE_TAGLINES: Record<string, string> = {
     "A governed multi-agent system that catches unsupported commitments before they ship.",
   archiq:
     "An AWS Solutions Architect study platform with a grounded AI tutor that answers only from its sources.",
+  careerops:
+    "Keeps the whole state of a job search continuously understood, ranks what deserves attention, and leaves the decision to you.",
 };
 
 export default function HomePage() {
@@ -47,7 +49,7 @@ export default function HomePage() {
           <Section leading>
             <SectionHeading
               eyebrow="See them live"
-              title="Three AWS apps you can open right now"
+              title="Four AWS apps you can open right now"
               intro="Not slideware. Each is a working, AWS-native product you can click through, built to show how I handle grounding, agents, trust, and the jump from prototype to production."
             />
             <div className="mt-10">
@@ -74,7 +76,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
           {featured.map((p, i) => (
             <Reveal key={p.frontmatter.slug} delay={i * 70}>
               <ProjectCard project={p.frontmatter} />
