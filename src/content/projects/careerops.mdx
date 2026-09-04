@@ -1,0 +1,132 @@
+---
+title: "CareerOps — AI Operating System for Your Job Search"
+slug: "careerops"
+summary: "An operating system for a job search that keeps its whole state continuously understood, ranks what deserves attention across dimensions you weight yourself, and leaves every decision to you."
+problem: "A job search is not a list of applications but a state to maintain, and that state moves across dozens of asynchronous conversations faster than anyone can hold in their head."
+featured: true
+status: "Live demo"
+order: 2
+categories:
+  - Generative AI
+  - Agentic AI
+  - AWS
+technologies:
+  - Model Context Protocol (MCP)
+  - Anthropic API
+  - Multi-Tenant SaaS
+  - PostgreSQL RLS
+  - Aurora Serverless v2
+  - AWS
+liveUrl: "https://careerops.mikemiller.ai"
+githubUrl: "https://github.com/mikemiller-ai"
+coverImage: "/images/projects/careerops.png"
+---
+
+## Overview
+
+CareerOps is an operating system for a job search. It treats the search not as a list of
+applications but as a state to maintain. Opportunities, conversations, people, commitments,
+and signals all move at once, and CareerOps keeps that state continuously understood, so
+you can stop asking what you are forgetting and see what changed, what matters, and what to
+do next. It ranks what deserves attention across dimensions you weight yourself, and it
+leaves the decision to you.
+
+It runs on AWS as a multi-tenant SaaS. The public demo is synthetic and needs no account;
+the real product is a private beta with one workspace per person.
+
+> The demo runs on synthetic data, cannot reach a private account, and keeps everything in
+> the session. I frame what follows as how the system is built and what it is designed to
+> do, not as delivered outcomes from anyone's real job search.
+
+## Business problem
+
+The hard part of a job search was never writing the email. It is holding reliable state
+across dozens of asynchronous conversations that each move on their own schedule:
+
+- Opportunities, recruiters, referrals, and commitments all advance in parallel, and the
+  thing that needs attention today is easy to miss until it has already gone cold.
+- The useful signal is spread across email, calendar, and meeting notes, and stitching it
+  into one current picture by hand is the actual work.
+- An assistant can help with both, but only if it never quietly overwrites what you know
+  to be true, and never invents a number to fill a gap.
+
+## What it does
+
+- Keeps a live model of the search: opportunities and their stage, the people attached to
+  them, and the commitments and signals moving around them.
+- Ranks what deserves attention across seven dimensions, combined through weights you set.
+  A dimension nothing can compute is left blank rather than defaulted, because an invented
+  number is worse than a missing one.
+- Pulls context through authenticated integrations with the tools a search actually lives
+  in, Gmail, Google Calendar, and Granola, and keeps them in sync without clobbering
+  anything you have asserted yourself.
+- Proposes the next move and shows why, then leaves the decision to you.
+
+## Architecture
+
+CareerOps is a multi-tenant SaaS on AWS. Every generative step routes through one governed
+path rather than calling a model directly.
+
+1. Signals arrive from connected sources, Gmail, Google Calendar, and Granola, through
+   OAuth 2.0 integrations, and are reconciled into per-tenant state with deterministic
+   sync rules that protect anything the user has asserted.
+2. When a step needs a model, it goes through a central execution layer: a single runner
+   that enforces auditability, per-tenant cost budgets, and a human-in-the-loop approval
+   gate.
+3. Agents propose actions; deterministic logic makes the decisions that matter. Every
+   derived value carries its source, confidence, and provenance, so a fact you asserted
+   always outranks something the model inferred.
+4. Platform capabilities are exposed as authenticated tools over a Model Context Protocol
+   (MCP) server, so external agents can discover and invoke them under the same
+   governance, and the app itself acts as an MCP client.
+5. State lives in PostgreSQL on Aurora Serverless v2, isolated per tenant and scaled to
+   match real, bursty usage.
+
+## Important design decisions
+
+- One governed path for every model call. Nothing calls a model directly; the central
+  runner is where auditability, cost budgets, and approval live, so governance is a
+  property of the system rather than a convention someone has to remember.
+- User-asserted facts outrank machine inference. Source, confidence, and provenance ride
+  along with every derived value, and a human assertion wins by design.
+- Blank over invented. When a dimension cannot be computed, it stays blank. A missing
+  number is honest; a defaulted one quietly lies.
+- Agents propose, deterministic logic decides. The model is used where judgment helps and
+  kept away from the decisions that need to be repeatable.
+- MCP as the interface, not a bolt-on. Exposing capabilities as authenticated MCP tools
+  means the same governed surface serves the app and any external agent.
+
+## Security and governance
+
+- Tenant isolation is enforced below the application layer. Forced Row-Level Security on
+  every tenant-owned table means a query is scoped to its tenant whether or not the
+  application remembers to scope it.
+- Fail-closed by default. If tenant identity is missing from the context, a query returns
+  zero rows rather than risking a cross-tenant read.
+- Integrations authenticate with OAuth 2.0, and sync is deterministic, so connecting an
+  account never silently overwrites user-asserted state.
+- Per-tenant cost budgets and an audit trail are enforced at the execution layer, so model
+  usage is both capped and reviewable.
+
+## Evaluation & success metrics
+
+- The governance behaviors are the thing under test: that every model call is audited and
+  budgeted, that a missing tenant context returns nothing, and that user-asserted facts
+  survive contact with machine inference.
+- Sync is checked to confirm it reconciles connected sources without overwriting asserted
+  state.
+- I treat these as demonstrated behavior of the system, not as outcomes claimed for a real
+  job search.
+
+## Lessons learned
+
+- The model call is the easy part. The work is holding reliable, multi-tenant state and
+  deciding what the model is allowed to touch.
+- Isolation belongs in the database, not the application. Forced Row-Level Security and
+  fail-closed context turn "we remembered to filter by tenant" into a guarantee.
+- Refusing to invent a number is a feature. Leaving a dimension blank is what makes the
+  ranking trustworthy.
+
+## Links
+
+- Live demo: [careerops.mikemiller.ai](https://careerops.mikemiller.ai)
