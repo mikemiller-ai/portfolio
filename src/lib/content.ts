@@ -26,6 +26,12 @@ export type ProjectFrontmatter = {
   githubUrl?: string;
   liveUrl?: string;
   coverImage?: string;
+  // A product film. When present, it plays in the home LiveShowcase (play on
+  // click) and leads the project detail page. Optional — products without one
+  // fall back to `coverImage`, so the surfaces degrade cleanly.
+  video?: string;
+  videoPoster?: string;
+  videoCaptions?: string;
   accent?: string;
 };
 

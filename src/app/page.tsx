@@ -37,6 +37,9 @@ export default function HomePage() {
         SHOWCASE_TAGLINES[p.frontmatter.slug] ?? p.frontmatter.summary,
       image: p.frontmatter.coverImage as string,
       liveUrl: p.frontmatter.liveUrl as string,
+      video: p.frontmatter.video,
+      videoPoster: p.frontmatter.videoPoster,
+      videoCaptions: p.frontmatter.videoCaptions,
     }));
 
   return (

@@ -118,7 +118,33 @@ export default async function ProjectDetailPage({
         </header>
 
         <div className="mt-8">
-          {frontmatter.coverImage ? (
+          {frontmatter.video ? (
+            // A product film leads the page. Native <video> keeps this a Server
+            // Component; the WebVTT track ships captions. The poster is the
+            // product's landing-page screenshot (its `coverImage`), so the
+            // thumbnail matches the one in the home "SEE THEM LIVE" showcase;
+            // the film's brand frame is the fallback if there is no coverImage.
+            <div className="max-w-3xl overflow-hidden rounded-2xl border border-border bg-black shadow-soft">
+              <video
+                className="aspect-video w-full"
+                controls
+                preload="metadata"
+                playsInline
+                poster={frontmatter.coverImage ?? frontmatter.videoPoster}
+              >
+                <source src={frontmatter.video} type="video/mp4" />
+                {frontmatter.videoCaptions ? (
+                  <track
+                    kind="captions"
+                    src={frontmatter.videoCaptions}
+                    srcLang="en"
+                    label="English"
+                    default
+                  />
+                ) : null}
+              </video>
+            </div>
+          ) : frontmatter.coverImage ? (
             <a
               href={frontmatter.liveUrl ?? frontmatter.coverImage}
               target="_blank"
