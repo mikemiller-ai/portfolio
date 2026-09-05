@@ -33,13 +33,26 @@ export function buildMetadata({
       title: resolvedTitle,
       description: resolvedDescription,
       siteName: siteConfig.name,
-      images: [{ url: siteConfig.ogImagePath, width: 1200, height: 630 }],
+      images: [
+        {
+          url: siteConfig.ogImagePath,
+          width: 1200,
+          height: 630,
+          type: "image/png",
+          alt: `${siteConfig.name} — ${siteConfig.role}`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: resolvedTitle,
       description: resolvedDescription,
-      images: [siteConfig.ogImagePath],
+      images: [
+        {
+          url: siteConfig.ogImagePath,
+          alt: `${siteConfig.name} — ${siteConfig.role}`,
+        },
+      ],
     },
   };
 }
