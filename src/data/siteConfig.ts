@@ -27,7 +27,7 @@ export const siteConfig = {
   // These live at stable urls, so replacing the file is not enough on its own:
   // browsers that already downloaded the old copy would keep serving it. Bump
   // the ?v= whenever the file behind one of these changes.
-  resumePath: "/resume/michael-miller-resume.pdf?v=2026-09-04",
+  resumePath: "/resume/michael-miller-resume.pdf?v=2026-09-07",
   headshotPath: "/images/michael-miller-headshot.jpg",
   ogImagePath: "/images/og-image.png",
 
