@@ -12,16 +12,16 @@ export type Certification = {
 
 export const certifications: Certification[] = [
   {
+    name: "AWS Certified Solutions Architect – Associate (SAA-C03)",
+    issuer: "Amazon Web Services",
+    date: "Sep 2026",
+    status: "Earned",
+  },
+  {
     name: "AWS Certified AI Practitioner",
     issuer: "Amazon Web Services",
     date: "Mar 2026",
     status: "Earned",
-  },
-  {
-    name: "AWS Certified Solutions Architect – Associate (SAA-C03)",
-    issuer: "Amazon Web Services",
-    date: "Exam scheduled Sep 2026",
-    status: "In progress",
   },
   {
     name: "SnowPro Core Certification",
