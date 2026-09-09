@@ -1,0 +1,37 @@
+WEBVTT
+
+1
+00:00:00.800 --> 00:00:07.400
+A customer places an order. Three services have to react — and soon, a fourth. A queue, a topic, or an event bus?
+
+2
+00:00:11.900 --> 00:00:17.500
+This is ArchIQ. Your architecture decision guide for AWS — and Solutions Architect coach.
+
+3
+00:00:18.200 --> 00:00:27.400
+It starts with the service — a decision page, not a definition. When to use it, when not to, the trade-offs, the exact exam wording, the traps. One service, this deep.
+
+4
+00:00:32.300 --> 00:00:39.900
+Then it puts the close calls side by side. SQS keeps a message fourteen days; SNS doesn't persist at all. That's the decision.
+
+5
+00:00:40.500 --> 00:00:46.300
+And it names the trap. One shared queue can't fan out — delete a message, and it's gone for everyone else.
+
+6
+00:00:47.500 --> 00:00:54.200
+So it doesn't hand you a letter. It makes you choose — then explains why each answer is right, wrong, or only sometimes right.
+
+7
+00:00:56.500 --> 00:01:05.600
+And it isn't a question bank — it's a system. A dozen ways to study all a hundred and eighteen services: comparisons, guides, flashcards, traps, a tutor.
+
+8
+00:01:07.000 --> 00:01:12.800
+Because nobody accepts "the docs said so." It doesn't teach you the answer — it teaches you to defend it.
+
+9
+00:01:13.700 --> 00:01:18.400
+Reason through the decision. Then pass the exam. ArchIQ — think like an architect.
