@@ -1,0 +1,60 @@
+name: Deploy → S3 + CloudFront
+
+# Auto-publishes mikemiller.ai on every push to main by running the same
+# scripts/deploy.sh used for manual deploys (build export → S3 sync → CloudFront
+# invalidation). No long-lived AWS keys: auth is GitHub OIDC into an IAM role.
+#
+# One-time setup required before the first run (see the PR description):
+#   1. IAM role  arn:aws:iam::961406434831:role/portfolio-github-deploy
+#      trusting  repo:mikemiller-ai/portfolio:*  with S3 + CloudFront permissions.
+#   2. Repo secret  BRAND_KIT_TOKEN  — a PAT (read-only, contents) that can fetch
+#      the private @mikemiller-ai/web-brand-kit dependency during npm ci.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write # AWS OIDC
+  contents: read
+
+concurrency:
+  group: deploy-portfolio
+  cancel-in-progress: true
+
+env:
+  AWS_REGION: us-east-1
+  AWS_ROLE_ARN: arn:aws:iam::961406434831:role/portfolio-github-deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # @mikemiller-ai/web-brand-kit is a private GitHub dependency; the default
+      # GITHUB_TOKEN can't reach another repo, so use a PAT to rewrite git → https auth.
+      - name: Auth for the private web-brand-kit dependency
+        run: |
+          for pat in "https://github.com/" "git@github.com:" "ssh://git@github.com/"; do
+            git config --global url."https://x-access-token:${{ secrets.BRAND_KIT_TOKEN }}@github.com/".insteadOf "$pat"
+          done
+
+      - name: Install
+        run: npm ci
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      # scripts/deploy.sh: NEXT_OUTPUT=export build → aws s3 sync (cache headers) → CloudFront invalidation.
+      - name: Build + deploy
+        run: ./scripts/deploy.sh
