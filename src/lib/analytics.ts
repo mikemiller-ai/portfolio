@@ -27,7 +27,8 @@ export type AnalyticsEvent =
   | "linkedin_clicked"
   | "contact_form_submitted"
   | "booking_opened"
-  | "booking_widget_shown";
+  | "booking_widget_shown"
+  | "video_played";
 
 export function trackEvent(
   event: AnalyticsEvent,

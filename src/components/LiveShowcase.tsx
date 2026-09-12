@@ -4,6 +4,7 @@ import { useEffect, useReducer, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ExternalLink, Play } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export type ShowcaseItem = {
   slug: string;
@@ -130,7 +131,13 @@ export function LiveShowcase({ items }: { items: ShowcaseItem[] }) {
             {hasFilm && !playing ? (
               <button
                 type="button"
-                onClick={() => setPlay(true)}
+                onClick={() => {
+                  trackEvent("video_played", {
+                    project: current.slug,
+                    location: "showcase",
+                  });
+                  setPlay(true);
+                }}
                 aria-label={`Play the ${current.title.split(" — ")[0]} film`}
                 className="group/play absolute inset-0 z-20 flex items-center justify-center bg-black/10 transition-colors hover:bg-black/25 focus-visible:bg-black/25 focus-visible:outline-none"
               >

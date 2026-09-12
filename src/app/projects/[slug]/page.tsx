@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight, ExternalLink, Github } from "lucide-react";
 import { JsonLd } from "@/components/primitives";
 import { TableOfContents } from "@/components/TableOfContents";
 import { CoverArt } from "@/components/CoverArt";
+import { ProjectFilm } from "@/components/ProjectFilm";
 import { projectCoverKind } from "@/components/cards";
 import { getAllProjects, getProject } from "@/lib/content";
 import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
@@ -119,31 +120,17 @@ export default async function ProjectDetailPage({
 
         <div className="mt-8">
           {frontmatter.video ? (
-            // A product film leads the page. Native <video> keeps this a Server
-            // Component; the WebVTT track ships captions. The poster is the
-            // product's landing-page screenshot (its `coverImage`), so the
-            // thumbnail matches the one in the home "SEE THEM LIVE" showcase;
-            // the film's brand frame is the fallback if there is no coverImage.
-            <div className="max-w-3xl overflow-hidden rounded-2xl border border-border bg-black shadow-soft">
-              <video
-                className="aspect-video w-full"
-                controls
-                preload="metadata"
-                playsInline
-                poster={frontmatter.coverImage ?? frontmatter.videoPoster}
-              >
-                <source src={frontmatter.video} type="video/mp4" />
-                {frontmatter.videoCaptions ? (
-                  <track
-                    kind="captions"
-                    src={frontmatter.videoCaptions}
-                    srcLang="en"
-                    label="English"
-                    default
-                  />
-                ) : null}
-              </video>
-            </div>
+            // A product film leads the page. The film is a small Client
+            // Component (ProjectFilm) so it can report the first play to
+            // analytics; the poster is the product's landing-page screenshot
+            // (its `coverImage`), so the thumbnail matches the one in the home
+            // "SEE THEM LIVE" showcase, with the film's brand frame as fallback.
+            <ProjectFilm
+              slug={frontmatter.slug}
+              src={frontmatter.video}
+              poster={frontmatter.coverImage ?? frontmatter.videoPoster}
+              captions={frontmatter.videoCaptions}
+            />
           ) : frontmatter.coverImage ? (
             <a
               href={frontmatter.liveUrl ?? frontmatter.coverImage}
