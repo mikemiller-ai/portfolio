@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Onest } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
@@ -43,6 +44,11 @@ export const viewport: Viewport = {
   ],
 };
 
+// Privacy-friendly, cookieless analytics. Only loads when a domain is
+// configured (NEXT_PUBLIC_ANALYTICS_DOMAIN); otherwise the site ships no
+// tracker and trackEvent() stays a no-op. See src/lib/analytics.ts.
+const analyticsDomain = process.env.NEXT_PUBLIC_ANALYTICS_DOMAIN;
+
 export default function RootLayout({
   children,
 }: {
@@ -50,6 +56,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${onest.variable} ${GeistMono.variable}`}>
+      {analyticsDomain ? (
+        <Script
+          defer
+          data-domain={analyticsDomain}
+          src="https://plausible.io/js/script.js"
+          strategy="afterInteractive"
+        />
+      ) : null}
       <body className="min-h-screen bg-background font-sans antialiased">
         <ThemeProvider>
           <SkipLink />
