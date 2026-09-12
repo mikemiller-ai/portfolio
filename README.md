@@ -309,6 +309,25 @@ form), DynamoDB (submissions), WAF, CloudWatch + CloudFront logs, AWS Budgets.
   `NEXT_PUBLIC_ANALYTICS_DOMAIN` is set (see `.env.production`); with the var unset
   no tracker ships and `trackEvent()` is a no-op.
 
+### Analytics setup (Plausible)
+
+Pageviews plus custom conversion events (resume downloads, live-demo clicks,
+contact-form submissions, booking opens) flow to Plausible. To enable:
+
+1. Create a Plausible account and add the site (`mikemiller.ai`).
+2. `NEXT_PUBLIC_ANALYTICS_DOMAIN=mikemiller.ai` is already set in `.env.production`,
+   which is what switches the script on for production builds. Local dev leaves it
+   unset, so no dev traffic is counted.
+3. The Plausible script tag lives in `src/app/layout.tsx` (gated on that env var).
+   Its `src` carries the public per-site id from the Plausible dashboard — if you
+   ever regenerate the snippet or move sites, replace that one `src` value.
+4. Custom events fire automatically via `trackEvent()`; no dashboard config is
+   required, though you can add them as **Goals** in Plausible to chart conversions.
+
+To switch providers (e.g. Fathom) or self-host Plausible, change the script tag in
+`layout.tsx` and, if the client API differs, the `window.plausible(...)` call in
+`src/lib/analytics.ts` — nothing else references the provider.
+
 ---
 
 ## Testing checklist
