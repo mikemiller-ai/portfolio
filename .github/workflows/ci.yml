@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    name: Lint, typecheck, build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # The @mikemiller-ai/web-brand-kit dependency lives in a PRIVATE repo that
+      # npm pulls over git. The runner has no access by default, so authenticate
+      # git with a token that has read access to that repo and rewrite the SSH
+      # URL npm uses to an HTTPS URL carrying the token.
+      #
+      # Setup (one time): create a fine-grained personal access token with
+      # read-only "Contents" permission on mikemiller-ai/web-brand-kit, then add
+      # it to this repo as an Actions secret named BRAND_KIT_TOKEN
+      # (Settings → Secrets and variables → Actions → New repository secret).
+      - name: Configure access to private brand-kit
+        run: |
+          git config --global \
+            url."https://x-access-token:${BRAND_KIT_TOKEN}@github.com/".insteadOf \
+            "ssh://git@github.com/"
+        env:
+          BRAND_KIT_TOKEN: ${{ secrets.BRAND_KIT_TOKEN }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build

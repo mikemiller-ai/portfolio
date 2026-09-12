@@ -36,15 +36,17 @@ Then open <http://localhost:3000>.
 
 ### Environment variables
 
-Copy `.env.example` to `.env.local`. Nothing is required to run the prototype
+Copy `.env.example` to `.env.local`. Nothing is required to run the site
 locally. Documented variables:
 
 - `NEXT_PUBLIC_SITE_URL` — canonical base URL for metadata/sitemap (falls back to
   localhost in dev).
-- `NEXT_PUBLIC_CONTACT_ENDPOINT` — future contact-form backend (unused in the
-  prototype; the form uses a mock handler).
-- `NEXT_PUBLIC_ANALYTICS_DOMAIN` — future privacy-conscious analytics (disabled by
-  default).
+- `NEXT_PUBLIC_CONTACT_ENDPOINT` — contact-form backend (API Gateway → Lambda →
+  SES). Set in `.env.production`; when unset (e.g. local dev) the form falls back
+  to opening the visitor's mail client.
+- `NEXT_PUBLIC_ANALYTICS_DOMAIN` — privacy-conscious, cookieless Plausible
+  analytics. When set, the script loads and `trackEvent()` forwards to it; when
+  unset, no tracker ships and `trackEvent()` is a no-op.
 
 **No secrets are committed.** `.env.local` is gitignored.
 
@@ -64,7 +66,7 @@ src/
     architectures/     # *.mdx
     articles/          # *.mdx
   data/                # siteConfig, experience, certifications, expertise, diagrams
-  lib/                 # content loader, seo helpers, analytics stub, cn()
+  lib/                 # content loader, seo helpers, analytics (Plausible), cn()
   styles / app/globals.css   # design tokens (colors, accent) + prose styles
 public/
   images/              # headshot, OG image
@@ -246,8 +248,9 @@ headers, and invalidates CloudFront.
 This site avoids Next.js features that require a server (no server actions;
 images are configured `unoptimized`), so it can be exported to static files.
 
-1. Add `output: "export"` to `next.config.mjs`.
-2. `npm run build` → static site is emitted to `out/`.
+1. Build with the export switch: `NEXT_OUTPUT=export npm run build` (already wired
+   in `next.config.mjs` — no manual config edit needed).
+2. The static site is emitted to `out/`.
 3. Upload `out/` to an S3 bucket configured for static hosting.
 4. Put **CloudFront** in front of the bucket (Origin Access Control), attach an
    **ACM** certificate for HTTPS, and point **Route 53** at the distribution.
@@ -283,11 +286,12 @@ form), DynamoDB (submissions), WAF, CloudWatch + CloudFront logs, AWS Budgets.
 - Baseline security headers are set in `next.config.mjs`
   (`X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`,
   `Permissions-Policy`).
-- **Content Security Policy:** for production, add a CSP header once the final
-  analytics/host choices are known. A good starting policy for this
-  self-contained site: `default-src 'self'; img-src 'self' data:; style-src
-  'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; frame-ancestors
-  'self'`. (Tighten `script-src`/`style-src` further with nonces if desired.)
+- **Content Security Policy:** for production, add a CSP header. A good starting
+  policy for this site: `default-src 'self'; img-src 'self' data:; style-src
+  'self' 'unsafe-inline'; script-src 'self' https://plausible.io; connect-src
+  'self' https://plausible.io; font-src 'self'; frame-ancestors 'self'`. Drop the
+  `plausible.io` entries if analytics is disabled; tighten `script-src`/`style-src`
+  further with nonces if desired.
 - The contact form validates on the client and posts to an API Gateway + Lambda
   backend that re-validates, applies a honeypot check, and sends via SES. CORS on
   the API is locked to the site origin. No secrets ship in the client.
@@ -300,24 +304,45 @@ form), DynamoDB (submissions), WAF, CloudWatch + CloudFront logs, AWS Budgets.
 - Skip-to-content link, semantic landmarks, keyboard-operable nav/drawer/diagram,
   visible focus states, labeled form fields, `prefers-reduced-motion` support,
   and written text descriptions for architecture diagrams.
-- Analytics is a documented **no-op** abstraction (`src/lib/analytics.ts`,
-  `trackEvent()`). Wire up a privacy-conscious provider there later; no tracker
-  ships in the prototype.
+- Analytics runs through a single `trackEvent()` abstraction (`src/lib/analytics.ts`)
+  wired to Plausible (privacy-conscious, cookieless). It is active only when
+  `NEXT_PUBLIC_ANALYTICS_DOMAIN` is set (see `.env.production`); with the var unset
+  no tracker ships and `trackEvent()` is a no-op.
+
+### Analytics setup (Plausible)
+
+Pageviews plus custom conversion events (resume downloads, live-demo clicks,
+contact-form submissions, booking opens) flow to Plausible. To enable:
+
+1. Create a Plausible account and add the site (`mikemiller.ai`).
+2. `NEXT_PUBLIC_ANALYTICS_DOMAIN=mikemiller.ai` is already set in `.env.production`,
+   which is what switches the script on for production builds. Local dev leaves it
+   unset, so no dev traffic is counted.
+3. The Plausible script tag lives in `src/app/layout.tsx` (gated on that env var).
+   Its `src` carries the public per-site id from the Plausible dashboard — if you
+   ever regenerate the snippet or move sites, replace that one `src` value.
+4. Custom events fire automatically via `trackEvent()`; no dashboard config is
+   required, though you can add them as **Goals** in Plausible to chart conversions.
+
+To switch providers (e.g. Fathom) or self-host Plausible, change the script tag in
+`layout.tsx` and, if the client API differs, the `window.plausible(...)` call in
+`src/lib/analytics.ts` — nothing else references the provider.
 
 ---
 
 ## Testing checklist
 
 `npm run typecheck`, `npm run lint`, and `npm run build` should all pass with no
-app-code warnings. Manually verify: navigation + mobile drawer, theme switcher,
-project/architecture/insights filters, the interactive architecture diagram,
-contact-form validation states, resume links, keyboard navigation, and responsive
-layout (no horizontal scroll on mobile).
+app-code warnings. These three run automatically on every push and pull request
+to `main` via GitHub Actions (`.github/workflows/ci.yml`). Manually verify:
+navigation + mobile drawer, theme switcher, project/architecture/insights filters,
+the interactive architecture diagram, contact-form validation states, resume links,
+keyboard navigation, and responsive layout (no horizontal scroll on mobile).
 
 ---
 
 Built with Next.js. Deployable on AWS.
 
-*Placeholders to replace with finals:* the headshot and resume in `public/`
-(real files are already in place), the social sharing image
-`public/images/og-image.svg`, and the `NEXT_PUBLIC_SITE_URL` domain.
+The headshot and resume in `public/`, the social sharing image
+`public/images/og-image.png`, and the `NEXT_PUBLIC_SITE_URL` domain are all
+final and in place.

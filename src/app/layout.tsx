@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Onest } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
@@ -43,6 +44,13 @@ export const viewport: Viewport = {
   ],
 };
 
+// Privacy-friendly, cookieless analytics (Plausible). Loads only when a domain
+// is configured (NEXT_PUBLIC_ANALYTICS_DOMAIN, set in .env.production); with the
+// var unset — e.g. local dev — no tracker ships and trackEvent() stays a no-op.
+// The script id below is the public per-site tag from the Plausible dashboard.
+// See src/lib/analytics.ts.
+const analyticsEnabled = Boolean(process.env.NEXT_PUBLIC_ANALYTICS_DOMAIN);
+
 export default function RootLayout({
   children,
 }: {
@@ -50,6 +58,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${onest.variable} ${GeistMono.variable}`}>
+      {analyticsEnabled ? (
+        <>
+          <Script
+            async
+            src="https://plausible.io/js/pa-I7bdbDdsUfHiU1DVKM90s.js"
+            strategy="afterInteractive"
+          />
+          <Script id="plausible-init" strategy="afterInteractive">
+            {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`}
+          </Script>
+        </>
+      ) : null}
       <body className="min-h-screen bg-background font-sans antialiased">
         <ThemeProvider>
           <SkipLink />
