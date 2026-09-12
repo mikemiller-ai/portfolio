@@ -42,7 +42,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       # @mikemiller-ai/web-brand-kit is a private GitHub dependency; the default
