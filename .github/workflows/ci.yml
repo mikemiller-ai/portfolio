@@ -12,7 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
+        # persist-credentials: false stops checkout from writing the repo-scoped
+        # GITHUB_TOKEN as an http extraheader that would override the URL-embedded
+        # BRAND_KIT_TOKEN and make npm ci's private-dependency fetch fail.
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Set up Node
         uses: actions/setup-node@v4
