@@ -5,7 +5,7 @@
  */
 
 export const siteConfig = {
-  name: "Michael Miller Jr.",
+  name: "Michael Miller",
   shortName: "Michael Miller",
   initials: "MM",
   // Headline + value proposition used on the home hero and in metadata.
