@@ -10,7 +10,7 @@ import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "About",
   description:
-    "Michael Miller is an AI solutions architect and engineering leader who designs, builds, and delivers enterprise AI, with a focus on governance, evaluation, and getting from proof of concept to production.",
+    "Michael Miller Jr. is an AI solutions architect and engineering leader who designs, builds, and delivers enterprise AI, with a focus on governance, evaluation, and getting from proof of concept to production.",
   path: "/about",
 });
 

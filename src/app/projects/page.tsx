@@ -7,7 +7,7 @@ import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Projects",
   description:
-    "Independent AI applications and case studies from Michael Miller: live AWS apps covering RAG, multi-agent systems, governance, and human-in-the-loop design.",
+    "Independent AI applications and case studies from Michael Miller Jr., including live AWS apps covering RAG, multi-agent systems, governance, and human-in-the-loop design.",
   path: "/projects",
 });
 

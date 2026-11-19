@@ -7,7 +7,7 @@ import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "How I Think",
   description:
-    "How Michael Miller reasons through enterprise AI decisions — the questions he asks before recommending an architecture, worked through real scenarios.",
+    "How Michael Miller Jr. reasons through enterprise AI decisions — the questions he asks before recommending an architecture, worked through real scenarios.",
   path: "/how-i-think",
 });
 

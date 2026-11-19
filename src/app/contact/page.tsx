@@ -9,7 +9,7 @@ import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Contact",
   description:
-    "Connect with Michael Miller about enterprise AI architecture, engineering, speaking, or the projects featured on this site.",
+    "Connect with Michael Miller Jr. about enterprise AI architecture, engineering, speaking, or the projects featured on this site.",
   path: "/contact",
 });
 
