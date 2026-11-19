@@ -4,10 +4,9 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/data/siteConfig";
 
-const defaultTitle =
-  "Michael Miller Jr. | Senior AI Solutions Architect & Engineer";
+const defaultTitle = `${siteConfig.shortName} | ${siteConfig.role}`;
 const defaultDescription =
-  "Michael Miller Jr. designs enterprise AI that holds up in production: RAG and agentic systems on AWS, with the guardrails, evaluation, and human-in-the-loop controls that make them safe to ship.";
+  "Michael Miller is an AI Solutions Architect and Engineering Leader specializing in enterprise Generative AI, Agentic AI, cloud architecture, and production-ready AI applications.";
 
 /** Build page metadata with sensible OG/Twitter defaults. */
 export function buildMetadata({
@@ -63,7 +62,14 @@ export function personJsonLd() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: siteConfig.name,
-    jobTitle: siteConfig.role,
+    // The real title, with the employer in employment context only. The
+    // positioning line (siteConfig.role) goes in description, not jobTitle.
+    jobTitle: siteConfig.currentPosition.title,
+    worksFor: {
+      "@type": "Organization",
+      name: siteConfig.currentPosition.company,
+    },
+    description: defaultDescription,
     email: `mailto:${siteConfig.email}`,
     url: siteConfig.url,
     address: {
@@ -81,6 +87,8 @@ export function personJsonLd() {
       "Multi-Agent Systems",
       "AI Governance",
       "AWS",
+      "Cloud Architecture",
+      "Enterprise Architecture",
       "Solutions Architecture",
       "Machine Learning",
     ],

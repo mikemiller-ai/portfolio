@@ -6,6 +6,8 @@
 export type Role = {
   company: string;
   title: string;
+  /** Group or practice within the company, shown next to the company name. */
+  organization?: string;
   location: string;
   start: string;
   end: string;
@@ -16,9 +18,24 @@ export type Role = {
 };
 
 export const careerSummary =
-  "Ten-plus years spanning data analytics, machine learning, and enterprise AI. I started by building and deploying production ML systems, then led a data science team, and most recently worked customer-facing designing generative and agentic AI solutions. The through-line has stayed the same: translate a business problem into an architecture teams can actually adopt, and be honest about what it takes to run it safely once it leaves the demo.";
+  "Ten-plus years spanning data analytics, machine learning, and enterprise AI. I started by building and deploying production ML systems, then led a data science team, then worked customer-facing at Snowflake designing generative and agentic AI solutions. Today I work on generative and agentic AI in Accenture's Center for Advanced AI. The through-line has stayed the same: translate a business problem into an architecture teams can actually adopt, and be honest about what it takes to run it safely once it leaves the demo.";
 
 export const roles: Role[] = [
+  {
+    // Current role. Keep this to the role description: no client names,
+    // internal initiatives, or outcomes until they are real and public.
+    company: "Accenture",
+    title: "Manager, Advanced AI Solutions",
+    organization: "Center for Advanced AI",
+    location: "Remote (Cincinnati, OH)",
+    start: "Nov 2026",
+    end: "Present",
+    focus: "Generative AI · Agentic AI · Enterprise solution architecture",
+    summary:
+      "Focused on helping enterprises design, build, and adopt Generative AI and Agentic AI solutions, combining enterprise solution architecture, hands-on engineering, and technical leadership to connect advanced AI capabilities with practical business outcomes.",
+    highlights: [],
+    technologies: [],
+  },
   {
     company: "Snowflake",
     title: "Senior Solutions Engineer",

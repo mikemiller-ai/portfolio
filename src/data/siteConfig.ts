@@ -9,11 +9,23 @@ export const siteConfig = {
   shortName: "Michael Miller",
   initials: "MM",
   // Headline + value proposition used on the home hero and in metadata.
-  role: "Senior AI Solutions Architect & Engineer",
+  // This is a professional identity, not a job title. The actual title lives
+  // in currentPosition and is the only thing the structured data calls a jobTitle.
+  role: "AI Solutions Architect & Engineering Leader",
+  // Current employer, shown small under the hero headline and in the
+  // Experience timeline. Keep it accurate and keep it secondary: the site is
+  // an independent portfolio, not an employer page.
+  currentPosition: {
+    title: "Manager, Advanced AI Solutions",
+    company: "Accenture",
+    organization: "Center for Advanced AI",
+  },
   tagline:
-    "I design enterprise AI that holds up in production: RAG and agentic systems with the guardrails, evaluation, and human-in-the-loop controls that make them safe to ship.",
+    "I design and build enterprise AI that holds up in production, combining solution architecture, hands-on engineering, and technical leadership to deliver measurable business outcomes.",
+  portfolioDescriptor:
+    "Independent AI Projects · Live Applications · Enterprise Architecture Case Studies",
   summary:
-    "Senior AI solutions architect and engineer with 10+ years across AI/ML and cloud data platforms. I build RAG and multi-agent systems on AWS, and I care as much about trust, governance, and evaluation as I do about the model.",
+    "AI solutions architect and engineering leader with 10+ years across AI/ML and cloud data platforms. I design and build RAG and multi-agent systems, and I care as much about trust, governance, and evaluation as I do about the model.",
 
   // Privacy-conscious: general location only, no phone number or home address.
   location: "Cincinnati, Ohio area",
@@ -46,17 +58,17 @@ export const siteConfig = {
     {
       label: "30 minutes",
       slug: "30min",
-      blurb: "An intro, a screen, or a quick question.",
+      blurb: "A quick introduction or question.",
     },
     {
       label: "45 minutes",
       slug: "45-minute-meeting",
-      blurb: "An interview or a technical discussion.",
+      blurb: "A technical discussion.",
     },
     {
       label: "60 minutes",
       slug: "60-minute-meeting",
-      blurb: "A deep dive or a working session.",
+      blurb: "A deeper dive into architecture or one of the projects.",
     },
   ],
 

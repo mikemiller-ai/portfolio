@@ -9,7 +9,7 @@ import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Contact",
   description:
-    "Get in touch with Michael Miller Jr. about AI, data, and solutions architecture roles, consulting, speaking, or professional networking.",
+    "Connect with Michael Miller about enterprise AI architecture, engineering, speaking, or the projects featured on this site.",
   path: "/contact",
 });
 
@@ -50,35 +50,16 @@ export default function ContactPage() {
             Let&apos;s start a conversation
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            Whether you&apos;re hiring for a senior AI solutions architect or
-            engineer, exploring a proof of concept, or just want to compare notes
-            on getting AI to production, I&apos;d be glad to hear from you.
+            Interested in discussing enterprise AI architecture, engineering, or
+            the work featured on this site? Feel free to connect with me through
+            LinkedIn or email.
           </p>
         </div>
 
-        {/* Booking first: it is the higher-intent action, and anyone who would
-            rather write than commit to a slot still has the form below. */}
-        <div id="book" className="mt-12 scroll-mt-24">
-          <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-            Book a call
-          </h2>
-          <p className="mt-2 max-w-2xl text-muted-foreground">
-            Pick a time that suits you and you&apos;ll get a calendar invite
-            straight away. Times shown are in your own timezone.
-          </p>
-          <CalendlyEmbed className="mt-6" />
-        </div>
-
-        <div className="mt-16 border-t border-border pt-12">
-          <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-            Prefer to write first?
-          </h2>
-          <p className="mt-2 max-w-2xl text-muted-foreground">
-            Reach me directly, or send a message and I&apos;ll come back to you.
-          </p>
-        </div>
-
-        <div className="mt-8 grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+        {/* Direct channels and the form come first: this page is for
+            professional networking, and email or LinkedIn is the natural first
+            step. The scheduler follows for anyone who would rather talk. */}
+        <div className="mt-12 grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           {/* Left: direct channels */}
           <div className="space-y-4">
             {channels.map((c) => (
@@ -118,7 +99,7 @@ export default function ContactPage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-muted p-5">
-              <p className="text-sm font-medium text-foreground">Prefer the resume?</p>
+              <p className="text-sm font-medium text-foreground">Prefer the résumé?</p>
               <p className="mt-1 text-sm text-muted-foreground">
                 No form required. Download it directly.
               </p>
@@ -130,6 +111,18 @@ export default function ContactPage() {
           <div>
             <ContactForm />
           </div>
+        </div>
+
+        <div id="book" className="mt-16 scroll-mt-24 border-t border-border pt-12">
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+            Prefer to talk?
+          </h2>
+          <p className="mt-2 max-w-2xl text-muted-foreground">
+            If a conversation is easier, pick a time that suits you and
+            you&apos;ll get a calendar invite straight away. Times shown are in
+            your own timezone.
+          </p>
+          <CalendlyEmbed className="mt-6" />
         </div>
       </Section>
     </>

@@ -7,7 +7,7 @@ import { ExpertiseGrid } from "@/components/ExpertiseGrid";
 import { ProjectCard } from "@/components/cards";
 import { LiveShowcase, type ShowcaseItem } from "@/components/LiveShowcase";
 import { Reveal } from "@/components/Reveal";
-import { BookCallButton, ResumeButton } from "@/components/SiteLinks";
+import { ResumeButton } from "@/components/SiteLinks";
 import { getFeaturedProjects } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 
@@ -53,7 +53,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="See them live"
               title="Four AWS apps you can open right now"
-              intro="Not slideware. Each is a working, AWS-native product you can click through, built to show how I handle grounding, agents, trust, and the jump from prototype to production."
+              intro="Not slideware. Each is a working, AWS-native product I designed and built independently, and you can click through every one. They show how I handle grounding, agents, trust, and the jump from prototype to production."
             />
             <div className="mt-10">
               <LiveShowcase items={showcaseItems} />
@@ -129,9 +129,11 @@ export default function HomePage() {
               </p>
               <p>
                 I have built production ML systems, led a data science team, and
-                spent the last stretch customer-facing. Lately I have been building
-                my own AWS applications, which means I care as much about whether a
-                solution gets adopted, and stays safe, as whether it works in a demo.
+                worked customer-facing as a solutions engineer. Today I focus on
+                generative and agentic AI at Accenture, and I still build my own
+                AWS applications independently. Between the two, I care as much
+                about whether a solution gets adopted, and stays safe, as whether
+                it works in a demo.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link href="/about" className="btn btn-secondary btn-md">
@@ -152,21 +154,23 @@ export default function HomePage() {
         <div className="evidence-dark rounded-3xl px-6 py-16 text-center sm:px-12">
           <div className="mx-auto max-w-2xl">
             <h2 className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Let&apos;s talk about your AI and data challenges
+              Want to compare notes on enterprise AI?
             </h2>
             <p className="mt-4 text-lg text-slate-300">
-              Whether you&apos;re hiring, exploring a proof of concept, or trying
-              to get an AI initiative to production — I&apos;m glad to help think
-              it through.
+              I&apos;m always glad to talk through AI architecture, engineering
+              trade-offs, or any of the work on this site.
             </p>
             {/* Two choices only. A closing CTA should ask for one thing, and
                 these cover the two states a reader is actually in: ready to
-                talk, or wanting to evaluate first. "Explore Projects" sent
-                people back up a page they had just scrolled, and LinkedIn is
-                already in both the nav and the footer. */}
+                reach out, or wanting the full history first. "Explore Projects"
+                sent people back up a page they had just scrolled, and LinkedIn
+                is already in both the nav and the footer. */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <BookCallButton className="btn-evidence border-transparent" source="home-cta" />
-              <ResumeButton variant="ghost" label="View Resume" className="btn-on-dark" />
+              <Link href="/contact" className="btn btn-evidence btn-md border-transparent">
+                Get in touch
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+              <ResumeButton variant="ghost" label="View Résumé" className="btn-on-dark" />
             </div>
           </div>
         </div>

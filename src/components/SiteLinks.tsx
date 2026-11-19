@@ -11,7 +11,7 @@ import { cn } from "@/lib/cn";
 export function ResumeButton({
   variant = "primary",
   size = "md",
-  label = "Download Resume",
+  label = "Download Résumé",
   className,
 }: {
   variant?: "primary" | "secondary" | "ghost";

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { capabilities } from "@/data/expertise";
-import { BookCallButton, ResumeButton } from "./SiteLinks";
+import { ResumeButton } from "./SiteLinks";
 
 export function Hero() {
   // Split the role so the second half gets the Evidence gradient for a bit of pop.
@@ -25,15 +25,22 @@ export function Hero() {
       <section className="evidence-dark -mt-16">
         <div className="container-page grid items-center gap-12 pb-20 pt-32 sm:pt-36 lg:grid-cols-[1.1fr_0.9fr] lg:pb-28">
           <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-xs font-medium text-slate-200 backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden />
-              Open to senior AI solutions architect &amp; engineer roles
+            {/* What the site is, in the mono eyebrow style used on the credibility
+                strip and inner pages. Plain text rather than a pill so it wraps
+                cleanly on narrow screens. */}
+            <p className="font-mono text-[0.7rem] uppercase leading-relaxed tracking-[0.16em] text-slate-400">
+              {siteConfig.portfolioDescriptor}
             </p>
 
-            <h1 className="mt-5 text-balance text-4xl font-semibold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]">
+            <h1 className="mt-4 text-balance text-4xl font-semibold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]">
               {roleHead}
               {roleGrad ? <span className="evidence-grad">{roleGrad}</span> : null}
             </h1>
+
+            {/* Current position: deliberately quieter than the headline. */}
+            <p className="mt-4 text-base font-medium text-slate-200 sm:text-lg">
+              {siteConfig.currentPosition.title} at {siteConfig.currentPosition.company}
+            </p>
 
             <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-slate-300">
               {siteConfig.tagline}
@@ -41,11 +48,10 @@ export function Hero() {
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link href="/projects" className="btn btn-evidence btn-md">
-                View My Work
+                Explore My Work
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
-              <ResumeButton variant="ghost" className="btn-on-dark" />
-              <BookCallButton className="btn-on-dark" source="hero" />
+              <ResumeButton variant="ghost" label="Download Résumé" className="btn-on-dark" />
             </div>
 
             <p className="mt-6 inline-flex items-center gap-1.5 text-sm text-slate-400">

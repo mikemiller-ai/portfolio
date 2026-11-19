@@ -9,8 +9,9 @@ import { cn } from "@/lib/cn";
 const CONTACT_ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
 
 const REASONS = [
-  "Career opportunity",
-  "Consulting or advisory",
+  "Enterprise AI architecture",
+  "Engineering discussion",
+  "One of the projects",
   "Speaking or collaboration",
   "Professional networking",
   "Other",
