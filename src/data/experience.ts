@@ -1,5 +1,5 @@
 /**
- * Professional history. Content is drawn from Michael Miller's resume and is
+ * Professional history. Content is drawn from Michael Miller Jr.'s resume and is
  * intentionally focused on scope and impact rather than exhaustive task lists.
  */
 

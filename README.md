@@ -1,7 +1,7 @@
-# Michael Miller: Portfolio & Digital Resume
+# Michael Miller Jr. · Portfolio & Digital Resume
 
 A modern personal portfolio and digital resume site positioning Michael "Mike"
-Miller as an AI solutions architect and engineering leader. Built with Next.js, statically generated, content-driven by MDX, and
+Miller Jr. as an AI solutions architect and engineering leader. Built with Next.js, statically generated, content-driven by MDX, and
 designed to be hosted on AWS.
 
 - **Stack:** Next.js 14 (App Router) · React 18 · TypeScript · Tailwind CSS

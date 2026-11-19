@@ -5,8 +5,8 @@
  */
 
 export const siteConfig = {
-  name: "Michael Miller",
-  shortName: "Michael Miller",
+  name: "Michael Miller Jr.",
+  shortName: "Michael Miller Jr.",
   initials: "MM",
   // Headline + value proposition used on the home hero and in metadata.
   // This is a professional identity, not a job title. The actual title lives
@@ -41,7 +41,8 @@ export const siteConfig = {
   // the ?v= whenever the file behind one of these changes.
   resumePath: "/resume/michael-miller-resume.pdf?v=2026-09-07",
   headshotPath: "/images/michael-miller-headshot.jpg",
-  ogImagePath: "/images/og-image.png",
+  // Bump ?v= when the image changes: LinkedIn and others cache previews by url.
+  ogImagePath: "/images/og-image.png?v=2026-11",
 
   // Scheduling. Embedded on /contact and linked from the hero/footer.
   //

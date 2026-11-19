@@ -7,7 +7,7 @@ import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Insights",
   description:
-    "Durable, thoughtful writing on enterprise AI, RAG, agentic systems, and getting AI from proof of concept to production — by Michael Miller",
+    "Durable, thoughtful writing on enterprise AI, RAG, agentic systems, and getting AI from proof of concept to production — by Michael Miller Jr.",
   path: "/insights",
 });
 

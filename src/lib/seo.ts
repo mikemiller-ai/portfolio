@@ -6,7 +6,7 @@ import { siteConfig } from "@/data/siteConfig";
 
 const defaultTitle = `${siteConfig.shortName} | ${siteConfig.role}`;
 const defaultDescription =
-  "Michael Miller is an AI Solutions Architect and Engineering Leader specializing in enterprise Generative AI, Agentic AI, cloud architecture, and production-ready AI applications.";
+  "Michael Miller Jr. is an AI Solutions Architect and Engineering Leader specializing in enterprise Generative AI, Agentic AI, cloud architecture, and production-ready AI applications.";
 
 /** Build page metadata with sensible OG/Twitter defaults. */
 export function buildMetadata({

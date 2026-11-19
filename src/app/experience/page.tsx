@@ -10,7 +10,7 @@ import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Experience",
   description:
-    "The professional history of Michael Miller: enterprise AI solution architecture, solutions engineering, data science leadership, and production ML.",
+    "The professional history of Michael Miller Jr., covering enterprise AI solution architecture, solutions engineering, data science leadership, and production ML.",
   path: "/experience",
 });
 
