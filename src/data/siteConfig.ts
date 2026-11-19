@@ -39,7 +39,9 @@ export const siteConfig = {
   // These live at stable urls, so replacing the file is not enough on its own:
   // browsers that already downloaded the old copy would keep serving it. Bump
   // the ?v= whenever the file behind one of these changes.
-  resumePath: "/resume/michael-miller-resume.pdf?v=2026-09-07",
+  // The old /resume/michael-miller-resume.pdf url is kept as an identical copy
+  // so links shared before the rename keep working. Replace both together.
+  resumePath: "/resume/Michael_Miller_Resume.pdf?v=2026-11-19",
   headshotPath: "/images/michael-miller-headshot.jpg",
   // Bump ?v= when the image changes: LinkedIn and others cache previews by url.
   ogImagePath: "/images/og-image.png?v=2026-11",

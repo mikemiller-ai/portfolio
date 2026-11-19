@@ -159,9 +159,20 @@ recommended). No code changes needed — the path is set once in
 
 ### Replace the resume
 
-Replace **`public/resume/michael-miller-resume.pdf`**. The path is set once in
-`src/data/siteConfig.ts` (`resumePath`) and is linked from the nav, hero,
-experience page, and footer.
+The résumé is built from **`resume-source/resume.html`** (with `logo.svg`) and
+printed to PDF with headless Chrome, so text, fonts and links stay ATS-readable:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+  --no-pdf-header-footer --print-to-pdf=public/resume/Michael_Miller_Resume.pdf \
+  "file://$PWD/resume-source/resume.html"
+cp public/resume/Michael_Miller_Resume.pdf public/resume/michael-miller-resume.pdf
+```
+
+The second file keeps the old url working for links shared before the rename.
+The path is set once in `src/data/siteConfig.ts` (`resumePath`); bump its `?v=`
+whenever the PDF changes. It is linked from the nav, hero, experience page,
+contact page, and footer.
 
 ### Update personal info & social links
 

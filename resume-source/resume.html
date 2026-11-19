@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Michael Miller Jr. Resume</title>
+<style>
+  /* Font: the system SF face. Chrome embeds it as CID TrueType with a Unicode map,
+     which ATS parsers read reliably. Date ranges use &nbsp; around the dash so
+     extractors keep each range on one line. */
+  :root { --font: -apple-system, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
+  @page { size: letter; margin: 34pt 39.6pt 16pt 39.6pt; }
+  :root {
+    --ink: #201E1D;
+    --ink-2: #444141;
+    --muted: #605D5D;
+    --red: #EC3013;
+    --red-deep: #AE1800;
+    --hair: #D7D3D3;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: var(--font); color: var(--ink); font-size: 8.9pt; line-height: 1.26; }
+  a { color: var(--red-deep); text-decoration: none; }
+
+  /* Header */
+  .head { display: flex; justify-content: space-between; align-items: baseline; }
+  .name { font-size: 24.6pt; font-weight: 800; letter-spacing: -0.035em; line-height: 1; }
+  .headline { font-size: 7.85pt; font-weight: 700; letter-spacing: 0.09em; font-kerning: none; color: var(--red); }
+  .bar { border-top: 2.1pt solid var(--ink); margin-top: 2.4pt; }
+  .contact { font-size: 9.2pt; color: var(--ink-2); padding: 4pt 0 3.5pt; border-bottom: 0.75pt solid var(--hair); letter-spacing: 0.01em; }
+  .contact .sep { color: var(--red); padding: 0 7pt; }
+  .summary { font-size: 9.5pt; line-height: 1.32; margin: 6pt 0 4pt; }
+
+  /* Sections */
+  section { border-top: 1.5pt solid var(--ink); padding-top: 4pt; margin-top: 7pt; }
+  /* Kerning plus letter-spacing makes Chrome split the heading into separate
+     text runs, which reads as "C E RT I F I C AT I O N S" to an ATS. */
+  h2 { font-size: 8.65pt; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 3pt; font-kerning: none; break-after: avoid; }
+  .certs p, .edu p { font-size: 9.2pt; line-height: 1.5; }
+  .certs b, .edu b { font-weight: 700; }
+  .red { color: var(--red-deep); }
+
+  /* Roles and projects */
+  .role { margin-top: 7pt; }
+  h2 + .role { margin-top: 2pt; }
+  .role-head { break-after: avoid; break-inside: avoid; border-bottom: 0.75pt solid var(--hair); padding-bottom: 2.5pt; margin-bottom: 4.5pt; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; }
+  .org { font-size: 11.25pt; font-weight: 700; letter-spacing: -0.01em; }
+  .title { font-size: 9.65pt; font-weight: 500; color: var(--red-deep); }
+  .date { font-size: 9pt; font-weight: 700; color: var(--muted); white-space: nowrap; }
+  .loc { font-size: 8.65pt; color: var(--muted); white-space: nowrap; }
+  .url { font-size: 8.7pt; font-weight: 700; white-space: nowrap; }
+  .tags { font-size: 8.5pt; color: var(--muted); line-height: 1.25; margin-top: 1pt; }
+
+  ul { list-style: none; }
+  li { position: relative; padding-left: 12pt; margin-bottom: 2.6pt; break-inside: avoid; }
+  li::before { content: ""; position: absolute; left: 2.2pt; top: 4.1pt; width: 3pt; height: 3pt; border-radius: 50%; background: var(--red); }
+
+  .skills p { margin-bottom: 3pt; line-height: 1.26; }
+  .skills b { font-weight: 700; }
+  .nw { white-space: nowrap; }
+
+  /* Brand mark, repeated in the bottom margin of every page. Drawn as
+     vector paths with empty alt text, so it adds nothing to the text layer. */
+  .mark { position: fixed; right: 0; bottom: 0; height: 16.5pt; }
+  /* Chrome repeats a table footer on every printed page, so this empty row
+     reserves room at the bottom of each page for the brand mark. */
+  table.page { width: 100%; border-collapse: collapse; }
+  table.page td { padding: 0; vertical-align: top; }
+  .foot-space { height: 30pt; }
+</style>
+</head>
+<body>
+  <img class="mark" src="logo.svg" alt="">
+  <table class="page" role="presentation">
+  <tfoot><tr><td><div class="foot-space"></div></td></tr></tfoot>
+  <tbody><tr><td>
+
+  <header>
+    <div class="head">
+      <h1 class="name">MICHAEL MILLER JR.</h1>
+      <div class="headline">AI SOLUTIONS ARCHITECT &amp; ENGINEERING LEADER</div>
+    </div>
+    <div class="bar"></div>
+    <p class="contact">+1 (440) 804-6241<span class="sep">/</span><a href="mailto:mike@mikemiller.ai">mike@mikemiller.ai</a><span class="sep">/</span>Lebanon, OH, USA<span class="sep">/</span><a href="https://linkedin.com/in/mikemillerai/">linkedin.com/in/mikemillerai/</a><span class="sep">/</span><a href="https://mikemiller.ai/">mikemiller.ai</a></p>
+    <p class="summary">AI Solutions Architect and engineering leader with 10+ years in AI/ML and cloud data platforms, delivering $35M+ in revenue impact. Designs and builds production generative AI on AWS with RAG, multi-agent systems, <span class="nw">human-in-the-loop</span> controls, and guardrails. Combines hands-on engineering, team leadership, and deep Snowflake and Databricks experience.</p>
+  </header>
+
+  <section class="certs">
+    <h2>CERTIFICATIONS</h2>
+    <p><b>AWS Certified Solutions Architect – Associate</b> — Amazon Web Services, September 2026 <a href="https://www.credly.com/badges/65953e99-faa5-4599-9ca0-49b332329f41/public_url">Verify</a></p>
+    <p><b>AWS Certified AI Practitioner</b> — Amazon Web Services, March 2026 <a href="https://www.credly.com/badges/c027477d-8f6c-409d-9821-83cbcecfe905/linked_in_profile">Verify</a></p>
+    <p><b>SnowPro Core Certification</b> — Snowflake, July 2025 <a href="https://achieve.snowflake.com/3ad103ea-a0a7-4f93-af4a-ee57cbf653fc#acc.VEZzJADC">Verify</a></p>
+    <p><b>Databricks Certified Machine Learning Associate</b> — Databricks, February 2025 <a href="https://credentials.databricks.com/257d0eb4-e337-49fe-8e22-c95af4339a61">Verify</a></p>
+  </section>
+
+  <section>
+    <h2>PROFESSIONAL EXPERIENCE</h2>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="row"><span class="org">Accenture</span><span class="date">November 2026&nbsp;–&nbsp;Present</span></div>
+        <div class="row"><span class="title">Manager, Advanced AI Solutions</span><span class="loc">Remote (Cincinnati, OH)</span></div>
+      </div>
+      <ul>
+        <li>Help enterprise teams design, build, and adopt generative and agentic AI through solution architecture and hands-on engineering.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="row"><span class="org">Snowflake</span><span class="date">April 2025&nbsp;–&nbsp;December 2025</span></div>
+        <div class="row"><span class="title">Senior Solutions Engineer</span><span class="loc">Remote (Cincinnati, OH)</span></div>
+      </div>
+      <ul>
+        <li>Owned the technical strategy across enterprise sales cycles with Account Executives, guiding validated solution designs from discovery through adoption; helped drive 20%+ YOY consumption growth across every account in the portfolio.</li>
+        <li>Led solution design for high-priority generative AI use cases, including RAG, intelligent document processing, and agentic systems built on Cortex Agents, tool calling, NL-to-SQL semantic models, and Snowflake-managed MCP servers that connected enterprise data to external AI agents.</li>
+        <li>Advised enterprise customers on data and AI strategy, mapping business priorities, technical constraints, and security requirements to reference architectures and sequenced adoption roadmaps.</li>
+        <li>Led enterprise proofs of concept (POCs) and delivered 25+ customer-specific demos, hands-on labs, and enablement sessions on Cortex AI, Document AI, and Snowflake ML using customer data.</li>
+        <li>Contributed to $5M in renewal ACV through technical risk assessments, architecture reviews, and executive presentations.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="row"><span class="org">The E.W. Scripps Company</span><span class="date">February 2024&nbsp;–&nbsp;March 2025</span></div>
+        <div class="row"><span class="title">Senior Manager, Data Science</span><span class="loc">Cincinnati, OH, USA</span></div>
+      </div>
+      <ul>
+        <li>Managed a team of 4 data scientists and analysts, delivering AI/ML models that generated $20M+ in revenue across sales, operations, and customer engagement.</li>
+        <li>Advised senior leadership on AI strategy and established best practices for model monitoring, governance, and MLOps.</li>
+        <li>Led enterprise-wide AI initiatives including data governance, third-party technology evaluations, and data monetization strategy with business leaders.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="row"><span class="org">The E.W. Scripps Company</span><span class="date">June 2021&nbsp;–&nbsp;February 2024</span></div>
+        <div class="row"><span class="title">Senior Data Scientist</span><span class="loc">Cincinnati, OH, USA</span></div>
+      </div>
+      <ul>
+        <li>Built audience forecasting and programmatic ad optimization models that increased prediction accuracy by 400% and drove $15M in incremental revenue.</li>
+        <li>Led the transition from batch inference to real-time scoring, improving model efficiency by 60% and giving business teams faster access to model outputs.</li>
+        <li>Designed ML pipelines in Azure Databricks, Snowflake, and MLflow that standardized deployment and established a repeatable MLOps foundation.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="row"><span class="org">First Financial Bank</span><span class="date">October 2020&nbsp;–&nbsp;June 2021</span></div>
+        <div class="row"><span class="title">Analytics Manager</span><span class="loc">Cincinnati, OH</span></div>
+      </div>
+      <ul>
+        <li>Defined KPIs for digital products and built data-driven decision frameworks adopted across multiple business lines.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="row"><span class="org">Worldpay</span><span class="date">September 2018&nbsp;–&nbsp;October 2020</span></div>
+        <div class="row"><span class="title">Senior Data Analyst</span><span class="loc">Cincinnati, OH</span></div>
+      </div>
+      <ul>
+        <li>Used random forest feature importance and Tableau to trace the source of fraud across enterprise client portfolios, informing a mitigation strategy that cut fraud losses by $2M per month.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>SELECTED PROJECTS</h2>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="row"><span class="org">ResolveIQ — Enterprise AI Case Resolution Platform</span><a class="url" href="https://resolveiq.mikemiller.ai/">resolveiq.mikemiller.ai</a></div>
+        <div class="tags">Agentic AI | Retrieval-Augmented Generation (RAG) | Human-in-the-Loop | ML Risk Scoring | Amazon Bedrock | Serverless</div>
+      </div>
+      <ul>
+        <li>Architected an event-driven, serverless AWS platform (API Gateway, Lambda, Step Functions, EventBridge, DynamoDB, Amazon Bedrock) that turns fragmented, high-risk support cases into cited, evidence-backed resolution recommendations through RAG.</li>
+        <li>Designed an agentic workflow combining ML risk scoring, LLM recommendations, and a human-in-the-loop approval gate, with guardrails, RBAC, audit logging, and per-run cost visibility, delivered as infrastructure as code with AWS CDK.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="row"><span class="org">CareerOps — Multi-Tenant AI SaaS with MCP</span><a class="url" href="https://careerops.mikemiller.ai/">careerops.mikemiller.ai</a></div>
+        <div class="tags">Model Context Protocol (MCP) | Agentic AI | Multi-Tenant SaaS | PostgreSQL Row-Level Security (RLS) | Aurora Serverless v2</div>
+      </div>
+      <ul>
+        <li>Built a multi-tenant SaaS on AWS (Aurora Serverless v2, PostgreSQL) with tenant isolation enforced through forced Row-Level Security on every tenant-owned table and fail-closed context handling.</li>
+        <li>Designed a governed LLM execution layer that routes every model call through a central runner enforcing auditability, per-tenant cost budgets, and human approval, and shipped a production MCP server and client that expose authenticated tools to external AI agents.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="row"><span class="org">TrustResponse — Governed Multi-Agent Security Review</span><a class="url" href="https://trustresponse.mikemiller.ai/">trustresponse.mikemiller.ai</a></div>
+        <div class="tags">Multi-agent orchestration | RAG | Structured outputs | Human-in-the-loop | Evaluation</div>
+      </div>
+      <ul>
+        <li>Architected a governed multi-agent system for security-questionnaire automation using LangGraph-orchestrated drafting, compliance critic, consistency, and escalation agents over a RAG evidence base, where no agent approves its own work.</li>
+        <li>Validated with an evaluation harness (7/7 planted traps caught, 0 confidently wrong answers, retrieval Hit@1 = 1.00) and built fully serverless on AWS with CDK and GitHub Actions CI/CD, holding live cost to about $0 to $5 per month.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>SKILLS</h2>
+    <p><b>Solutions Architecture &amp; Leadership:</b> Solution architecture, system design, integration architecture, API design, distributed systems, architecture reviews, technical validation, high availability, disaster recovery, security and governance, observability, cost optimization, proofs of concept (POCs), pre-sales engineering, executive communication, stakeholder management, team leadership</p>
+    <p><b>AWS &amp; Cloud:</b> AWS <span class="nw">Well-Architected</span> Framework, serverless and event-driven architecture, VPC networking, PrivateLink, API Gateway, Lambda, Step Functions, EventBridge, SQS/SNS, ECS/Fargate, CloudFront, RDS/Aurora, DynamoDB, Cognito, IAM, AWS CDK, CloudFormation, Infrastructure as Code (IaC), Microsoft Azure, Google Cloud Platform</p>
+    <p><b>Generative AI &amp; Agentic Systems:</b> LLMs, RAG, embeddings, vector search, Amazon Bedrock, multi-agent orchestration, LangGraph, LangChain, Model Context Protocol (MCP), guardrails, AI evaluation, structured outputs</p>
+    <p><b>Data &amp; Machine Learning:</b> Machine learning, MLOps, model monitoring, data governance, Snowflake, Cortex AI, Databricks, MLflow, Apache Spark, scikit-learn, XGBoost, TensorFlow, PyTorch, forecasting, PostgreSQL</p>
+    <p><b>Languages &amp; Tools:</b> Python, SQL, R, FastAPI, REST APIs, Docker, GitHub Actions, Tableau, Power BI</p>
+  </section>
+
+  <section class="edu">
+    <h2>EDUCATION</h2>
+    <p><b>University of Toledo</b> — Master of Arts (MA), Economics, <span class="red">May 2016</span></p>
+    <p><b>University of Toledo</b> — Bachelor of Arts (BA), Economics, <span class="red">May 2015</span></p>
+  </section>
+
+  </td></tr></tbody>
+  </table>
+</body>
+</html>
