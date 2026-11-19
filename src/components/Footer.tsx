@@ -58,6 +58,13 @@ export function Footer() {
           </p>
           <p className="font-mono">Built with Next.js · Hosted on AWS</p>
         </div>
+        {/* Keeps the independent portfolio clearly separate from his employer.
+            Ordinary footer type on purpose: present, not prominent. No logos. */}
+        <p className="mt-3 max-w-2xl text-xs leading-relaxed text-subtle">
+          This is an independent personal portfolio. Projects and opinions
+          presented here are my own and do not represent{" "}
+          {siteConfig.currentPosition.company} or its clients.
+        </p>
       </div>
     </footer>
   );

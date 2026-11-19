@@ -10,7 +10,7 @@ import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "About",
   description:
-    "Michael Miller Jr. bridges technical teams and business leaders — building and adopting AI and data solutions from proof of concept to production.",
+    "Michael Miller is an AI solutions architect and engineering leader who designs, builds, and delivers enterprise AI, with a focus on governance, evaluation, and getting from proof of concept to production.",
   path: "/about",
 });
 
@@ -73,29 +73,40 @@ export default function AboutPage() {
             </h1>
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>
-                I&apos;m {siteConfig.name}, a senior AI solutions architect and
-                engineer based in the {siteConfig.location}. Most of my work now
-                lives in the same place: retrieval-augmented systems, agents, and
-                agentic workflows, and the guardrails, evaluation, and human
-                approval that decide whether any of it is safe to put in front of
-                a real customer.
+                I&apos;m {siteConfig.shortName}, an AI solutions architect and
+                engineering leader based in the {siteConfig.location}. I design,
+                build, and deliver enterprise AI solutions. I&apos;m currently a
+                Manager in Accenture&apos;s Center for Advanced AI, where my work
+                centers on Generative AI, Agentic AI, and enterprise solution
+                architecture.
               </p>
               <p>
-                My path into this is a little unusual. I started by building
-                things. I spent years as a data scientist and ML engineer shipping
-                forecasting and optimization models into production, then led a
-                data science team, and moved into a customer-facing role because I
-                liked the part of the job that was about helping people make good
-                technical decisions. That history is why I care less about the
-                demo and more about what happens when the system meets real data,
-                real latency, and a real audit.
+                My background covers enterprise AI platforms, hands-on
+                engineering, technical leadership, and customer-facing solution
+                architecture. I&apos;ve been the engineer writing the code, the
+                leader accountable for a team and its results, and the advisor in
+                the room with enterprise customers. Having done all of those, I
+                understand the strategic decisions that shape an AI initiative and
+                the technical realities that decide whether it succeeds.
               </p>
               <p>
-                Lately I have been building it, not just advising on it. ResolveIQ,
-                TrustResponse, and ArchIQ are live AWS applications where I worked
-                through the questions that actually matter for enterprise AI: how a
-                system cites its sources, when it should refuse to answer, where a
-                human stays in control, and how you keep a public AI feature from
+                Before Accenture, I was a Senior Solutions Engineer at Snowflake. I
+                partnered with enterprise customers to find AI opportunities, shape
+                technical strategy, and design solutions involving
+                retrieval-augmented generation, AI agents, intelligent document
+                processing, and enterprise data integration. Earlier I spent years
+                as a data scientist shipping forecasting and optimization models
+                into production, then led a data science team. That history is why
+                I care less about the demo and more about what happens when the
+                system meets real data, real latency, and a real audit.
+              </p>
+              <p>
+                I also build on my own. ResolveIQ, TrustResponse, ArchIQ, and
+                CareerOps are live AWS applications I designed and built
+                independently, on my own time. Each one let me work through the
+                questions that actually matter for enterprise AI: how a system
+                cites its sources, when it should refuse to answer, where a human
+                stays in control, and how you keep a public AI feature from
                 becoming a surprise bill.
               </p>
             </div>

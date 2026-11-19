@@ -7,7 +7,7 @@ import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Projects",
   description:
-    "Featured projects from Michael Miller Jr. — enterprise AI systems, Snowflake and RAG reference libraries, and cloud architecture patterns.",
+    "Independent AI applications and case studies from Michael Miller: live AWS apps covering RAG, multi-agent systems, governance, and human-in-the-loop design.",
   path: "/projects",
 });
 
@@ -57,8 +57,8 @@ export default function ProjectsPage() {
             Four live AWS apps, not slideware
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            Each of these is a working, AWS-native product you can open and try.
-            They lead with the business problem and are honest about the
+            Each of these is a working, AWS-native product you can open and try,
+            designed and built independently on my own time. They lead with the business problem and are honest about the
             trade-offs, and together they cover grounding, agents, trust, and the
             jump from prototype to production. Filter by focus area below.
           </p>

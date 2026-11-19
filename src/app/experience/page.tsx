@@ -10,7 +10,7 @@ import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Experience",
   description:
-    "The professional history of Michael Miller Jr. — solutions engineering, data science leadership, and production ML across enterprise accounts.",
+    "The professional history of Michael Miller: enterprise AI solution architecture, solutions engineering, data science leadership, and production ML.",
   path: "/experience",
 });
 
@@ -85,7 +85,7 @@ export default function ExperiencePage() {
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{careerSummary}</p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <ResumeButton label="Download Resume" />
+            <ResumeButton label="Download Résumé" />
             <ResumeButton variant="secondary" label="View PDF" />
             <PrintButton label="Print résumé" />
           </div>
@@ -122,6 +122,12 @@ export default function ExperiencePage() {
                   </div>
                   <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
                     <span className="font-medium text-primary">{role.company}</span>
+                    {role.organization ? (
+                      <>
+                        <span className="text-subtle">·</span>
+                        <span className="text-muted-foreground">{role.organization}</span>
+                      </>
+                    ) : null}
                     <span className="text-subtle">·</span>
                     <span className="text-muted-foreground">{role.location}</span>
                   </div>
@@ -133,22 +139,26 @@ export default function ExperiencePage() {
                     {role.summary}
                   </p>
 
-                  <ul className="mt-4 space-y-2.5">
-                    {role.highlights.map((h) => (
-                      <li key={h} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" aria-hidden />
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {role.highlights.length > 0 ? (
+                    <ul className="mt-4 space-y-2.5">
+                      {role.highlights.map((h) => (
+                        <li key={h} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" aria-hidden />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
 
-                  <div className="mt-5 flex flex-wrap gap-1.5">
-                    {role.technologies.map((t) => (
-                      <span key={t} className="pill">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+                  {role.technologies.length > 0 ? (
+                    <div className="mt-5 flex flex-wrap gap-1.5">
+                      {role.technologies.map((t) => (
+                        <span key={t} className="pill">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
               </Reveal>
             ))}

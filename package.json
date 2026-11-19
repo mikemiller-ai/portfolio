@@ -2,7 +2,7 @@
   "name": "michael-miller-portfolio",
   "version": "0.1.0",
   "private": true,
-  "description": "Personal portfolio and digital resume for Michael Miller Jr.",
+  "description": "Personal portfolio and digital resume for Michael Miller",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
